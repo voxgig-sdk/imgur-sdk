@@ -1,0 +1,57 @@
+{
+  "existing": {
+    "image": {
+      "IMAGE00": {
+        "created_at": "s64",
+        "description": "s65",
+        "height": "s66",
+        "id": "IMAGE00",
+        "size": "s68",
+        "title": "s69",
+        "type": "s6a",
+        "url": "s6b",
+        "view": "s6c",
+        "width": "s6d"
+      },
+      "IMAGE01": {
+        "created_at": "sc8",
+        "description": "sc9",
+        "height": "sca",
+        "id": "IMAGE01",
+        "size": "scc",
+        "title": "scd",
+        "type": "sce",
+        "url": "scf",
+        "view": "sd0",
+        "width": "sd1"
+      },
+      "IMAGE02": {
+        "created_at": "s12c",
+        "description": "s12d",
+        "height": "s12e",
+        "id": "IMAGE02",
+        "size": "s130",
+        "title": "s131",
+        "type": "s132",
+        "url": "s133",
+        "view": "s134",
+        "width": "s135"
+      }
+    }
+  },
+  "new": {
+    "image": {
+      "image_ref01": {
+        "created_at": "s190",
+        "description": "s191",
+        "height": "s192",
+        "size": "s194",
+        "title": "s195",
+        "type": "s196",
+        "url": "s197",
+        "view": "s198",
+        "width": "s199"
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "existing": {
+    "post_meta": {
+      "POST_META00": {
+        "count": "s14",
+        "type": "s15"
+      },
+      "POST_META01": {
+        "count": "s28",
+        "type": "s29"
+      },
+      "POST_META02": {
+        "count": "s3c",
+        "type": "s3d"
+      }
+    }
+  },
+  "new": {
+    "post_meta": {
+      "post_meta_ref01": {
+        "count": "s50",
+        "type": "s51"
+      }
+    }
+  }
+}

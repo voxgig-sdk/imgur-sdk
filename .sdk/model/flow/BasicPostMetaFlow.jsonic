@@ -1,0 +1,26 @@
+# BasicPostMetaFlow
+
+main: kit: flow: BasicPostMetaFlow:
+{
+  entity: "post_meta",
+  kind: "basic",
+  name: "BasicPostMetaFlow",
+  step: [
+    {
+      match: {
+        post_id: "post01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "post_meta_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPostMetaFlow"
+}

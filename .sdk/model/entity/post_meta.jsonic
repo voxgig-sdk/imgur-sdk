@@ -1,0 +1,77 @@
+# Entity: post_meta
+
+main: kit: entity: post_meta: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "type"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "post_meta"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: "RUjYvXN"
+                kind: "param"
+                name: "id"
+                orig: "post_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: "post,user,accolades"
+                kind: "query"
+                name: "include"
+                orig: "include"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/post/{postId}/meta"
+          parts: [
+            "post"
+            "{id}"
+            "meta"
+          ]
+          rename: {
+            param: {
+              postId: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+              "include"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

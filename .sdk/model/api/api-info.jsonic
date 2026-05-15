@@ -1,0 +1,23 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://github.com/l0v3m0n3y/imgur"
+      }
+      description: "This API provides access to the functionalities of Imgur, allowing users to find, rate, and share memes and images from the platform. It enables easy integration with various applications, offering capabilities such as retrieving image metadata and managing user accounts."
+      servers: [
+        {
+          description: "Imgur API Server"
+          url: "https://imgur.com"
+        }
+      ]
+      title: "Imgur API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

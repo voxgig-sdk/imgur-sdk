@@ -1,0 +1,22 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 2
+  metrics: count: path: 2
+  metrics: count: method: 2
+
+  entity: image: {
+    path: "/images/{imageId}": {
+      rename: param: "imageId": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: post_meta: {
+    path: "/post/{postId}/meta": {
+      rename: param: "postId": *"id"
+      op: list: method: *GET
+    }
+  }
+
+}

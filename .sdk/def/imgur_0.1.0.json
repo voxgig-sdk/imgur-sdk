@@ -1,0 +1,402 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Imgur API",
+    "description": "This API provides access to the functionalities of Imgur, allowing users to find, rate, and share memes and images from the platform. It enables easy integration with various applications, offering capabilities such as retrieving image metadata and managing user accounts.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://github.com/l0v3m0n3y/imgur"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://imgur.com",
+      "description": "Imgur API Server"
+    }
+  ],
+  "paths": {
+    "/post/{postId}/meta": {
+      "get": {
+        "summary": "Get post metadata",
+        "description": "Retrieves metadata for a specific Imgur post, including post details, user information, and accolades.",
+        "operationId": "getPostMeta",
+        "parameters": [
+          {
+            "name": "postId",
+            "in": "path",
+            "description": "The unique identifier of the post",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "RUjYvXN"
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "description": "Comma-separated list of metadata to include (e.g., post, user, accolades)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "post,user,accolades"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with post metadata",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "post": {
+                      "type": "object",
+                      "description": "Post details",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "Post ID"
+                        },
+                        "title": {
+                          "type": "string",
+                          "description": "Post title"
+                        },
+                        "description": {
+                          "type": "string",
+                          "description": "Post description"
+                        },
+                        "views": {
+                          "type": "integer",
+                          "description": "Number of views"
+                        },
+                        "upvotes": {
+                          "type": "integer",
+                          "description": "Number of upvotes"
+                        },
+                        "downvotes": {
+                          "type": "integer",
+                          "description": "Number of downvotes"
+                        },
+                        "score": {
+                          "type": "integer",
+                          "description": "Post score"
+                        },
+                        "created_at": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Post creation timestamp"
+                        }
+                      }
+                    },
+                    "user": {
+                      "type": "object",
+                      "description": "User information",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "User ID"
+                        },
+                        "username": {
+                          "type": "string",
+                          "description": "Username"
+                        },
+                        "reputation": {
+                          "type": "integer",
+                          "description": "User reputation score"
+                        }
+                      }
+                    },
+                    "accolades": {
+                      "type": "array",
+                      "description": "List of accolades for the post",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "description": "Accolade type"
+                          },
+                          "count": {
+                            "type": "integer",
+                            "description": "Number of accolades of this type"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Post not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Post not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Internal server error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/images/{imageId}": {
+      "get": {
+        "summary": "Get image details",
+        "description": "Retrieves details and metadata for a specific image on Imgur.",
+        "operationId": "getImage",
+        "parameters": [
+          {
+            "name": "imageId",
+            "in": "path",
+            "description": "The unique identifier of the image",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with image details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Image ID"
+                    },
+                    "title": {
+                      "type": "string",
+                      "description": "Image title"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "Image description"
+                    },
+                    "url": {
+                      "type": "string",
+                      "format": "uri",
+                      "description": "Direct URL to the image"
+                    },
+                    "width": {
+                      "type": "integer",
+                      "description": "Image width in pixels"
+                    },
+                    "height": {
+                      "type": "integer",
+                      "description": "Image height in pixels"
+                    },
+                    "size": {
+                      "type": "integer",
+                      "description": "File size in bytes"
+                    },
+                    "views": {
+                      "type": "integer",
+                      "description": "Number of views"
+                    },
+                    "type": {
+                      "type": "string",
+                      "description": "MIME type of the image"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Image upload timestamp"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Image not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Image not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Internal server error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Post": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Post ID"
+          },
+          "title": {
+            "type": "string",
+            "description": "Post title"
+          },
+          "description": {
+            "type": "string",
+            "description": "Post description"
+          },
+          "views": {
+            "type": "integer",
+            "description": "Number of views"
+          },
+          "upvotes": {
+            "type": "integer",
+            "description": "Number of upvotes"
+          },
+          "downvotes": {
+            "type": "integer",
+            "description": "Number of downvotes"
+          },
+          "score": {
+            "type": "integer",
+            "description": "Post score"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Post creation timestamp"
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "User ID"
+          },
+          "username": {
+            "type": "string",
+            "description": "Username"
+          },
+          "reputation": {
+            "type": "integer",
+            "description": "User reputation score"
+          }
+        }
+      },
+      "Accolade": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Accolade type"
+          },
+          "count": {
+            "type": "integer",
+            "description": "Number of accolades of this type"
+          }
+        }
+      },
+      "Image": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Image ID"
+          },
+          "title": {
+            "type": "string",
+            "description": "Image title"
+          },
+          "description": {
+            "type": "string",
+            "description": "Image description"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Direct URL to the image"
+          },
+          "width": {
+            "type": "integer",
+            "description": "Image width in pixels"
+          },
+          "height": {
+            "type": "integer",
+            "description": "Image height in pixels"
+          },
+          "size": {
+            "type": "integer",
+            "description": "File size in bytes"
+          },
+          "views": {
+            "type": "integer",
+            "description": "Number of views"
+          },
+          "type": {
+            "type": "string",
+            "description": "MIME type of the image"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Image upload timestamp"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Error message"
+          }
+        }
+      }
+    }
+  }
+}

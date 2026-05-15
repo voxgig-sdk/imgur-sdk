@@ -1,0 +1,37 @@
+<?php
+declare(strict_types=1);
+
+// Imgur SDK base feature
+
+class ImgurBaseFeature
+{
+    public string $version;
+    public string $name;
+    public bool $active;
+
+    public function __construct()
+    {
+        $this->version = '0.0.1';
+        $this->name = 'base';
+        $this->active = true;
+    }
+
+    public function get_version(): string { return $this->version; }
+    public function get_name(): string { return $this->name; }
+    public function get_active(): bool { return $this->active; }
+
+    public function init(ImgurContext $ctx, array $options): void {}
+    public function PostConstruct(ImgurContext $ctx): void {}
+    public function PostConstructEntity(ImgurContext $ctx): void {}
+    public function SetData(ImgurContext $ctx): void {}
+    public function GetData(ImgurContext $ctx): void {}
+    public function GetMatch(ImgurContext $ctx): void {}
+    public function SetMatch(ImgurContext $ctx): void {}
+    public function PrePoint(ImgurContext $ctx): void {}
+    public function PreSpec(ImgurContext $ctx): void {}
+    public function PreRequest(ImgurContext $ctx): void {}
+    public function PreResponse(ImgurContext $ctx): void {}
+    public function PreResult(ImgurContext $ctx): void {}
+    public function PreDone(ImgurContext $ctx): void {}
+    public function PreUnexpected(ImgurContext $ctx): void {}
+}
