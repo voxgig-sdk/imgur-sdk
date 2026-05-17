@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/imgur-sdk"
-	"github.com/voxgig-sdk/imgur-sdk/core"
+	sdk "github.com/voxgig-sdk/imgur-sdk/go"
+	"github.com/voxgig-sdk/imgur-sdk/go/core"
 )
 
 func TestImageDirect(t *testing.T) {

@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/imgur-sdk/core"
+	"github.com/voxgig-sdk/imgur-sdk/go/core"
 )
 
 type BaseFeature struct {

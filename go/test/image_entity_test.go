@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/imgur-sdk"
-	"github.com/voxgig-sdk/imgur-sdk/core"
+	sdk "github.com/voxgig-sdk/imgur-sdk/go"
+	"github.com/voxgig-sdk/imgur-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/imgur-sdk/go/utility/struct"
 )
 
 func TestImageEntity(t *testing.T) {

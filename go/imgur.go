@@ -1,10 +1,10 @@
 package voxgigimgursdk
 
 import (
-	"github.com/voxgig-sdk/imgur-sdk/core"
-	"github.com/voxgig-sdk/imgur-sdk/entity"
-	"github.com/voxgig-sdk/imgur-sdk/feature"
-	_ "github.com/voxgig-sdk/imgur-sdk/utility"
+	"github.com/voxgig-sdk/imgur-sdk/go/core"
+	"github.com/voxgig-sdk/imgur-sdk/go/entity"
+	"github.com/voxgig-sdk/imgur-sdk/go/feature"
+	_ "github.com/voxgig-sdk/imgur-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

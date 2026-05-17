@@ -1,9 +1,9 @@
 package utility
 
 import (
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/imgur-sdk/go/utility/struct"
 
-	"github.com/voxgig-sdk/imgur-sdk/core"
+	"github.com/voxgig-sdk/imgur-sdk/go/core"
 )
 
 func transformResponseUtil(ctx *core.Context) any {

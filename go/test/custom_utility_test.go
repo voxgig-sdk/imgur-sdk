@@ -3,7 +3,7 @@ package sdktest
 import (
 	"testing"
 
-	sdk "github.com/voxgig-sdk/imgur-sdk"
+	sdk "github.com/voxgig-sdk/imgur-sdk/go"
 )
 
 func TestCustomUtility(t *testing.T) {
