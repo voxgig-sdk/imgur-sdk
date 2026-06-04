@@ -89,7 +89,6 @@ function image_basic_setup($extra)
         "IMGUR_TEST_IMAGE_ENTID" => $idmap,
         "IMGUR_TEST_LIVE" => "FALSE",
         "IMGUR_TEST_EXPLAIN" => "FALSE",
-        "IMGUR_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -101,7 +100,6 @@ function image_basic_setup($extra)
     if ($env["IMGUR_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["IMGUR_APIKEY"],
             ],
             $extra ?? [],
         ]);

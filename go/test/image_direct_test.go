@@ -117,14 +117,12 @@ func imageDirectSetup(mockres any) *imageDirectSetupResult {
 	env := envOverride(map[string]any{
 		"IMGUR_TEST_IMAGE_ENTID": map[string]any{},
 		"IMGUR_TEST_LIVE":    "FALSE",
-		"IMGUR_APIKEY":       "NONE",
 	})
 
 	live := env["IMGUR_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["IMGUR_APIKEY"],
 		}
 		client := sdk.NewImgurSDK(mergedOpts)
 

@@ -76,14 +76,12 @@ def post_meta_direct_setup(mockres)
   env = Runner.env_override({
     "IMGUR_TEST_POST_META_ENTID" => {},
     "IMGUR_TEST_LIVE" => "FALSE",
-    "IMGUR_APIKEY" => "NONE",
   })
 
   live = env["IMGUR_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
-      "apikey" => env["IMGUR_APIKEY"],
     }
     client = ImgurSDK.new(merged_opts)
     return {

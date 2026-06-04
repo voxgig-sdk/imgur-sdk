@@ -118,14 +118,12 @@ func post_metaDirectSetup(mockres any) *post_metaDirectSetupResult {
 	env := envOverride(map[string]any{
 		"IMGUR_TEST_POST_META_ENTID": map[string]any{},
 		"IMGUR_TEST_LIVE":    "FALSE",
-		"IMGUR_APIKEY":       "NONE",
 	})
 
 	live := env["IMGUR_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["IMGUR_APIKEY"],
 		}
 		client := sdk.NewImgurSDK(mergedOpts)
 

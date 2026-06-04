@@ -14,9 +14,6 @@ local function make_config()
     },
     options = {
       base = "https://imgur.com",
-      auth = {
-        prefix = "Bearer",
-      },
       headers = {
         ["content-type"] = "application/json",
       },

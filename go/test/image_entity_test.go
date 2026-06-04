@@ -123,7 +123,6 @@ func imageBasicSetup(extra map[string]any) *entityTestSetup {
 		"IMGUR_TEST_IMAGE_ENTID": idmap,
 		"IMGUR_TEST_LIVE":      "FALSE",
 		"IMGUR_TEST_EXPLAIN":   "FALSE",
-		"IMGUR_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["IMGUR_TEST_IMAGE_ENTID"])
@@ -134,7 +133,6 @@ func imageBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["IMGUR_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["IMGUR_APIKEY"],
 			},
 			extra,
 		})

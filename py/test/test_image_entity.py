@@ -95,7 +95,6 @@ def _image_basic_setup(extra):
         "IMGUR_TEST_IMAGE_ENTID": idmap,
         "IMGUR_TEST_LIVE": "FALSE",
         "IMGUR_TEST_EXPLAIN": "FALSE",
-        "IMGUR_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -106,7 +105,6 @@ def _image_basic_setup(extra):
     if env.get("IMGUR_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("IMGUR_APIKEY"),
             },
             extra or {},
         ])
