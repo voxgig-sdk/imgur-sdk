@@ -14,6 +14,9 @@ func MakeConfig() map[string]any {
 		},
 		"options": map[string]any{
 			"base": "https://imgur.com",
+			"auth": map[string]any{
+				"prefix": "Bearer",
+			},
 			"headers": map[string]any{
 				"content-type": "application/json",
 			},
@@ -26,91 +29,93 @@ func MakeConfig() map[string]any {
 			"image": map[string]any{
 				"fields": []any{
 					map[string]any{
+						"active": true,
 						"name": "created_at",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 0,
 					},
 					map[string]any{
+						"active": true,
 						"name": "description",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 1,
 					},
 					map[string]any{
+						"active": true,
 						"name": "height",
 						"req": false,
 						"type": "`$INTEGER`",
-						"active": true,
 						"index$": 2,
 					},
 					map[string]any{
+						"active": true,
 						"name": "id",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 3,
 					},
 					map[string]any{
+						"active": true,
 						"name": "size",
 						"req": false,
 						"type": "`$INTEGER`",
-						"active": true,
 						"index$": 4,
 					},
 					map[string]any{
+						"active": true,
 						"name": "title",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 5,
 					},
 					map[string]any{
+						"active": true,
 						"name": "type",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 6,
 					},
 					map[string]any{
+						"active": true,
 						"name": "url",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 7,
 					},
 					map[string]any{
+						"active": true,
 						"name": "view",
 						"req": false,
 						"type": "`$INTEGER`",
-						"active": true,
 						"index$": 8,
 					},
 					map[string]any{
+						"active": true,
 						"name": "width",
 						"req": false,
 						"type": "`$INTEGER`",
-						"active": true,
 						"index$": 9,
 					},
 				},
 				"name": "image",
 				"op": map[string]any{
 					"load": map[string]any{
+						"input": "data",
 						"name": "load",
 						"points": []any{
 							map[string]any{
+								"active": true,
 								"args": map[string]any{
 									"params": []any{
 										map[string]any{
+											"active": true,
 											"kind": "param",
 											"name": "id",
 											"orig": "image_id",
 											"reqd": true,
 											"type": "`$STRING`",
-											"active": true,
 										},
 									},
 								},
@@ -134,11 +139,9 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"active": true,
 								"index$": 0,
 							},
 						},
-						"input": "data",
 						"key$": "load",
 					},
 				},
@@ -149,47 +152,49 @@ func MakeConfig() map[string]any {
 			"post_meta": map[string]any{
 				"fields": []any{
 					map[string]any{
+						"active": true,
 						"name": "count",
 						"req": false,
 						"type": "`$INTEGER`",
-						"active": true,
 						"index$": 0,
 					},
 					map[string]any{
+						"active": true,
 						"name": "type",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 1,
 					},
 				},
 				"name": "post_meta",
 				"op": map[string]any{
 					"list": map[string]any{
+						"input": "data",
 						"name": "list",
 						"points": []any{
 							map[string]any{
+								"active": true,
 								"args": map[string]any{
 									"params": []any{
 										map[string]any{
+											"active": true,
 											"example": "RUjYvXN",
 											"kind": "param",
 											"name": "id",
 											"orig": "post_id",
 											"reqd": true,
 											"type": "`$STRING`",
-											"active": true,
 										},
 									},
 									"query": []any{
 										map[string]any{
+											"active": true,
 											"example": "post,user,accolades",
 											"kind": "query",
 											"name": "include",
 											"orig": "include",
 											"reqd": false,
 											"type": "`$STRING`",
-											"active": true,
 										},
 									},
 								},
@@ -215,11 +220,9 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"active": true,
 								"index$": 0,
 							},
 						},
-						"input": "data",
 						"key$": "list",
 					},
 				},

@@ -69,12 +69,14 @@ def _image_direct_setup(mockres):
     env = runner.env_override({
         "IMGUR_TEST_IMAGE_ENTID": {},
         "IMGUR_TEST_LIVE": "FALSE",
+        "IMGUR_APIKEY": "NONE",
     })
 
     live = env.get("IMGUR_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
+            "apikey": env.get("IMGUR_APIKEY"),
         }
         client = ImgurSDK(merged_opts)
         return {

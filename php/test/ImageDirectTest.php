@@ -77,12 +77,14 @@ function image_direct_setup($mockres)
     $env = Runner::env_override([
         "IMGUR_TEST_IMAGE_ENTID" => [],
         "IMGUR_TEST_LIVE" => "FALSE",
+        "IMGUR_APIKEY" => "NONE",
     ]);
 
     $live = $env["IMGUR_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
+            "apikey" => $env["IMGUR_APIKEY"],
         ];
         $client = new ImgurSDK($merged_opts);
         return [

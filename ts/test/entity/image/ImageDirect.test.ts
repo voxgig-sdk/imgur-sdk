@@ -80,12 +80,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'IMGUR_TEST_IMAGE_ENTID': {},
     'IMGUR_TEST_LIVE': 'FALSE',
+    'IMGUR_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.IMGUR_TEST_LIVE
 
   if (live) {
     const client = new ImgurSDK({
+      apikey: env.IMGUR_APIKEY,
     })
 
     let idmap: any = env['IMGUR_TEST_IMAGE_ENTID']

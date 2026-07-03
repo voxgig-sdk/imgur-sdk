@@ -1,20 +1,8 @@
 # Imgur SDK
 
-Find, rate, and share memes and images from the Imgur platform
+Imgur API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Imgur API
-
-[Imgur](https://imgur.com) is a community-driven image and meme sharing site. Its public HTTP API at `https://api.imgur.com` exposes the same image, gallery, and tag data that powers the Imgur website and mobile apps.
-
-What you typically work with through this SDK:
-
-- Image and media metadata served from Imgur's CDN
-- Gallery / post discovery and tagging endpoints under `/3/` (for example `GET /3/tags`)
-- Client configuration endpoints used by Imgur's own front-ends (for example `GET /3/configuration/desktop`)
-
-Authentication is required: every request must include a registered application's Client ID via an `Authorization: Client-ID <id>` header, and user-scoped actions additionally require an OAuth 2.0 access token. Endpoints, quotas, and availability are defined by Imgur and have historically been unstable for third-party callers, so treat responses defensively.
 
 ## Try it
 
@@ -48,27 +36,31 @@ gem install imgur-sdk
 luarocks install imgur-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { ImgurSDK } from 'imgur'
 
-const client = new ImgurSDK({})
+const client = new ImgurSDK({
+  apikey: process.env.IMGUR_APIKEY,
+})
 
+// Load image data
+const image = await client.Image().load({})
+console.log(image.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -98,8 +90,8 @@ The API exposes 2 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Image** | An image or media item hosted on Imgur, including its CDN URL and associated metadata. | `/images/{imageId}` |
-| **PostMeta** | Metadata about a gallery post or tag grouping, such as the tag listings returned by `GET /3/tags`. | `/post/{postId}/meta` |
+| **Image** |  | `/images/{imageId}` |
+| **PostMeta** |  | `/post/{postId}/meta` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -109,15 +101,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from imgur_sdk import ImgurSDK
 
-client = ImgurSDK({})
+client = ImgurSDK({
+    "apikey": os.environ.get("IMGUR_APIKEY"),
+})
 
 
 # Load a specific image
-image, err = client.Image(None).load(
-    {"id": "example_id"}, None
-)
+image, err = client.Image().load({"id": "example_id"})
+print(image)
 ```
 
 ### PHP
@@ -126,13 +120,14 @@ image, err = client.Image(None).load(
 <?php
 require_once 'imgur_sdk.php';
 
-$client = new ImgurSDK([]);
+$client = new ImgurSDK([
+    "apikey" => getenv("IMGUR_APIKEY"),
+]);
 
 
 // Load a specific image
-[$image, $err] = $client->Image(null)->load(
-    ["id" => "example_id"], null
-);
+[$image, $err] = $client->Image()->load(["id" => "example_id"]);
+print_r($image);
 ```
 
 ### Golang
@@ -140,8 +135,13 @@ $client = new ImgurSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/imgur-sdk/go"
 
-client := sdk.NewImgurSDK(map[string]any{})
+client := sdk.NewImgurSDK(map[string]any{
+    "apikey": os.Getenv("IMGUR_APIKEY"),
+})
 
+// Load image data
+image, err := client.Image(nil).Load(map[string]any{}, nil)
+fmt.Println(image)
 ```
 
 ### Ruby
@@ -149,13 +149,14 @@ client := sdk.NewImgurSDK(map[string]any{})
 ```ruby
 require_relative "Imgur_sdk"
 
-client = ImgurSDK.new({})
+client = ImgurSDK.new({
+  "apikey" => ENV["IMGUR_APIKEY"],
+})
 
 
 # Load a specific image
-image, err = client.Image(nil).load(
-  { "id" => "example_id" }, nil
-)
+image, err = client.Image().load({ "id" => "example_id" })
+puts image
 ```
 
 ### Lua
@@ -163,13 +164,14 @@ image, err = client.Image(nil).load(
 ```lua
 local sdk = require("imgur_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("IMGUR_APIKEY"),
+})
 
 
 -- Load a specific image
-local image, err = client:Image(nil):load(
-  { id = "example_id" }, nil
-)
+local image, err = client:Image():load({ id = "example_id" })
+print(image)
 ```
 
 ## Unit testing in offline mode
@@ -188,25 +190,21 @@ const result = await client.Image().load({ id: 'test01' })
 ### Python
 
 ```python
-client = ImgurSDK.test(None, None)
-result, err = client.Image(None).load(
-    {"id": "test01"}, None
-)
+client = ImgurSDK.test()
+result, err = client.Image().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = ImgurSDK::test(null, null);
-[$result, $err] = $client->Image(null)->load(
-    ["id" => "test01"], null
-);
+$client = ImgurSDK::test();
+[$result, $err] = $client->Image()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Image(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -215,19 +213,15 @@ result, err := client.Image(nil).Load(
 ### Ruby
 
 ```ruby
-client = ImgurSDK.test(nil, nil)
-result, err = client.Image(nil).load(
-  { "id" => "test01" }, nil
-)
+client = ImgurSDK.test
+result, err = client.Image().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Image(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Image():load({ id = "test01" })
 ```
 
 ## How it works
@@ -331,15 +325,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Imgur API
-
-- Upstream: [https://imgur.com](https://imgur.com)
-- API docs: [https://apidocs.imgur.com/](https://apidocs.imgur.com/)
-
-- Use of the API is governed by Imgur's API Terms of Service and Developer Agreement.
-- A registered application and Client ID are required; OAuth 2.0 is used for user-authenticated actions.
-- Imgur-hosted images and user content remain the property of their respective owners; review Imgur's terms before redistributing content.
 
 ---
 

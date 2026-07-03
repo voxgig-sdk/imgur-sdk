@@ -16,27 +16,7 @@ main: {
       ]
       title: "Imgur API"
       version: "1.0.0"
-      tagline: "Find, rate, and share memes and images from the Imgur platform"
-      homepage: "https://imgur.com"
-      docs_url: "https://apidocs.imgur.com/"
-      license_short: "Imgur API Terms of Service; requires registered application and Client ID"
-      license_md: `- Use of the API is governed by Imgur's API Terms of Service and Developer Agreement.
-- A registered application and Client ID are required; OAuth 2.0 is used for user-authenticated actions.
-- Imgur-hosted images and user content remain the property of their respective owners; review Imgur's terms before redistributing content.`
-      about_md: `[Imgur](https://imgur.com) is a community-driven image and meme sharing site. Its public HTTP API at \`https://api.imgur.com\` exposes the same image, gallery, and tag data that powers the Imgur website and mobile apps.
-
-What you typically work with through this SDK:
-
-- Image and media metadata served from Imgur's CDN
-- Gallery / post discovery and tagging endpoints under \`/3/\` (for example \`GET /3/tags\`)
-- Client configuration endpoints used by Imgur's own front-ends (for example \`GET /3/configuration/desktop\`)
-
-Authentication is required: every request must include a registered application's Client ID via an \`Authorization: Client-ID <id>\` header, and user-scoped actions additionally require an OAuth 2.0 access token. Endpoints, quotas, and availability are defined by Imgur and have historically been unstable for third-party callers, so treat responses defensively.`
-      entity_desc: {
-        image: "An image or media item hosted on Imgur, including its CDN URL and associated metadata."
-        post_meta: "Metadata about a gallery post or tag grouping, such as the tag listings returned by `GET /3/tags`."
-      }
-      auth: false
     }
   }
 }
+
