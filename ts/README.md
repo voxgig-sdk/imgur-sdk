@@ -10,7 +10,7 @@ The TypeScript SDK for the Imgur API — a type-safe, entity-oriented client wit
 
 ## Install
 ```bash
-npm install imgur
+npm install @voxgig-sdk/imgur
 ```
 ## Tutorial: your first API call
 

@@ -10,7 +10,7 @@ The Python SDK for the Imgur API — an entity-oriented client following Pythoni
 
 ## Install
 ```bash
-pip install imgur-sdk
+pip install voxgig-sdk-imgur
 ```
 
 Or install from source:

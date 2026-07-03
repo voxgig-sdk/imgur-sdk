@@ -10,7 +10,7 @@ The Lua SDK for the Imgur API — an entity-oriented client using Lua convention
 
 ## Install
 ```bash
-luarocks install imgur-sdk
+luarocks install voxgig-sdk-imgur
 ```
 
 If the module is not yet published, add the source directory to

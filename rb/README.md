@@ -10,13 +10,13 @@ The Ruby SDK for the Imgur API — an entity-oriented client using idiomatic Rub
 
 ## Install
 ```bash
-gem install imgur-sdk
+gem install voxgig-sdk-imgur
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "imgur-sdk"
+gem "voxgig-sdk-imgur"
 ```
 
 Then run:
