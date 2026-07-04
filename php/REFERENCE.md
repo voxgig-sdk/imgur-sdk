@@ -89,7 +89,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## ImageEntity
 
 ```php
-$image = $client->image();
+$image = $client->Image();
 ```
 
 ### Fields
@@ -114,7 +114,7 @@ $image = $client->image();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->image()->load(["id" => "image_id"]);
+$result = $client->Image()->load(["id" => "image_id"]);
 ```
 
 ### Common Methods
@@ -150,7 +150,7 @@ Return the entity name.
 ## PostMetaEntity
 
 ```php
-$post_meta = $client->post_meta();
+$post_meta = $client->PostMeta();
 ```
 
 ### Fields
@@ -167,7 +167,7 @@ $post_meta = $client->post_meta();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->post_meta()->list([]);
+$results = $client->PostMeta()->list([]);
 ```
 
 ### Common Methods

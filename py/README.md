@@ -33,10 +33,12 @@ client = ImgurSDK()
 
 ### 3. Load an image
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.image.load({"id": "example_id"})
-    print(result)
+    image = client.Image().load({"id": "example_id"})
+    print(image)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -84,8 +86,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = ImgurSDK.test()
 
-result = client.image.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+image = client.Image().load({"id": "test01"})
+# image contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -161,7 +164,7 @@ Creates a test-mode client with mock transport. Both arguments may be `None`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> dict` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> dict` | Build and send an HTTP request. Returns a result dict (branch on `ok`). |
-| `Image` | `(data) -> ImageEntity` | Create a Image entity instance. |
+| `Image` | `(data) -> ImageEntity` | Create an Image entity instance. |
 | `PostMeta` | `(data) -> PostMetaEntity` | Create a PostMeta entity instance. |
 
 ### Entity interface
@@ -239,7 +242,7 @@ API path: `/post/{postId}/meta`
 
 ### Image
 
-Create an instance: `const image = client.image`
+Create an instance: `image = client.Image()`
 
 #### Operations
 
@@ -264,14 +267,14 @@ Create an instance: `const image = client.image`
 
 #### Example: Load
 
-```ts
-const image = await client.image.load({ id: 'image_id' })
+```python
+image = client.Image().load({"id": "image_id"})
 ```
 
 
 ### PostMeta
 
-Create an instance: `const post_meta = client.post_meta`
+Create an instance: `post_meta = client.PostMeta()`
 
 #### Operations
 
@@ -288,8 +291,8 @@ Create an instance: `const post_meta = client.post_meta`
 
 #### Example: List
 
-```ts
-const post_metas = await client.post_meta.list()
+```python
+post_metas = client.PostMeta().list({})
 ```
 
 
@@ -363,7 +366,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-image = client.image
+image = client.Image()
 image.load({"id": "example_id"})
 
 # image.data_get() now returns the loaded image data

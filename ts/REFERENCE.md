@@ -121,7 +121,7 @@ Alias for `ImgurSDK.test()`.
 ## ImageEntity
 
 ```ts
-const image = client.image
+const image = client.Image()
 ```
 
 ### Fields
@@ -146,7 +146,7 @@ const image = client.image
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.image.load({ id: 'image_id' })
+const result = await client.Image().load({ id: 'image_id' })
 ```
 
 ### Common Methods
@@ -180,7 +180,7 @@ Return a copy of the entity options.
 ## PostMetaEntity
 
 ```ts
-const post_meta = client.post_meta
+const post_meta = client.PostMeta()
 ```
 
 ### Fields
@@ -197,7 +197,7 @@ const post_meta = client.post_meta
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.post_meta.list()
+const results = await client.PostMeta().list()
 ```
 
 ### Common Methods

@@ -205,28 +205,14 @@ class ImgurSDK {
 
 
 
-  _image?: ImageEntity
-
-  // Idiomatic facade: `client.image.list()` / `client.image.load({ id })`.
-  get image(): ImageEntity {
-    return (this._image ??= new ImageEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.image` instead. */
+  // Entity access: `client.Image().list()` / `client.Image().load({ id })`.
   Image(data?: any) {
     const self = this
     return new ImageEntity(self,data)
   }
 
 
-  _post_meta?: PostMetaEntity
-
-  // Idiomatic facade: `client.post_meta.list()` / `client.post_meta.load({ id })`.
-  get post_meta(): PostMetaEntity {
-    return (this._post_meta ??= new PostMetaEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.post_meta` instead. */
+  // Entity access: `client.PostMeta().list()` / `client.PostMeta().load({ id })`.
   PostMeta(data?: any) {
     const self = this
     return new PostMetaEntity(self,data)

@@ -87,7 +87,7 @@ same parameters as `direct()`.
 ## ImageEntity
 
 ```lua
-local image = client:image(nil)
+local image = client:Image(nil)
 ```
 
 ### Fields
@@ -112,7 +112,7 @@ local image = client:image(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:image():load({ id = "image_id" })
+local result, err = client:Image():load({ id = "image_id" })
 ```
 
 ### Common Methods
@@ -148,7 +148,7 @@ Return the entity name.
 ## PostMetaEntity
 
 ```lua
-local post_meta = client:post_meta(nil)
+local post_meta = client:PostMeta(nil)
 ```
 
 ### Fields
@@ -165,7 +165,7 @@ local post_meta = client:post_meta(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:post_meta():list()
+local results, err = client:PostMeta():list()
 ```
 
 ### Common Methods

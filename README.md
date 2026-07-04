@@ -26,9 +26,9 @@ import { ImgurSDK } from '@voxgig-sdk/imgur'
 
 const client = new ImgurSDK()
 
-// Load image data
-const image = await client.image.load({})
-console.log(image.data)
+// Load image data (returns a Image)
+const image = await client.Image().load()
+console.log(image)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -85,8 +85,8 @@ from imgur_sdk import ImgurSDK
 client = ImgurSDK()
 
 
-# Load a specific image
-image = client.image.load({"id": "example_id"})
+# Load a specific image (returns the record, raises on error)
+image = client.Image().load({"id": "example_id"})
 print(image)
 ```
 
@@ -99,8 +99,8 @@ require_once 'imgur_sdk.php';
 $client = new ImgurSDK();
 
 
-// Load a specific image
-$image = $client->image()->load(["id" => "example_id"]);
+// Load a specific image (returns the bare record; throws on error)
+$image = $client->Image()->load(["id" => "example_id"]);
 print_r($image);
 ```
 
@@ -124,8 +124,8 @@ require_relative "Imgur_sdk"
 client = ImgurSDK.new
 
 
-# Load a specific image
-image = client.image.load({ "id" => "example_id" })
+# Load a specific image (returns the bare record; raises on error)
+image = client.Image.load({ "id" => "example_id" })
 puts image
 ```
 
@@ -138,7 +138,7 @@ local client = sdk.new()
 
 
 -- Load a specific image
-local image, err = client:image():load({ id = "example_id" })
+local image, err = client:Image():load({ id = "example_id" })
 print(image)
 ```
 
@@ -151,22 +151,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = ImgurSDK.test()
-const result = await client.image.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const image = await client.Image().load({ id: 'test01' })
+// image is a bare Image populated with mock data
+console.log(image)
 ```
 
 ### Python
 
 ```python
 client = ImgurSDK.test()
-result = client.image.load({"id": "test01"})
+image = client.Image().load({"id": "test01"})
+print(image)
 ```
 
 ### PHP
 
 ```php
-$client = ImgurSDK::test();
-$result = $client->image()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = ImgurSDK::test([
+    "entity" => ["image" => ["test01" => ["id" => "test01"]]],
+]);
+$image = $client->Image()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -181,15 +186,18 @@ result, err := client.Image(nil).Load(
 ### Ruby
 
 ```ruby
-client = ImgurSDK.test
-result = client.image.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = ImgurSDK.test({
+  "entity" => { "image" => { "test01" => { "id" => "test01" } } },
+})
+image = client.Image.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:image():load({ id = "test01" })
+local result, err = client:Image():load({ id = "test01" })
 ```
 
 ## How it works
@@ -237,6 +245,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

@@ -220,41 +220,21 @@ class ImgurSDK:
         }
 
 
-    @property
-    def image(self):
-        """Idiomatic facade: client.image.list() / client.image.load({"id": ...})."""
-        from entity.image_entity import ImageEntity
-        cached = getattr(self, "_image", None)
-        if cached is None:
-            cached = ImageEntity(self, None)
-            self._image = cached
-        return cached
-
-    def Image(self, data=None):
-        # Deprecated: use client.image instead.
+    def Image(self, data=None) -> "ImageEntity":
+        """Entity factory: client.Image().list({}) / client.Image().load({"id": ...})."""
         from entity.image_entity import ImageEntity
         return ImageEntity(self, data)
 
 
-    @property
-    def post_meta(self):
-        """Idiomatic facade: client.post_meta.list() / client.post_meta.load({"id": ...})."""
-        from entity.post_meta_entity import PostMetaEntity
-        cached = getattr(self, "_post_meta", None)
-        if cached is None:
-            cached = PostMetaEntity(self, None)
-            self._post_meta = cached
-        return cached
-
-    def PostMeta(self, data=None):
-        # Deprecated: use client.post_meta instead.
+    def PostMeta(self, data=None) -> "PostMetaEntity":
+        """Entity factory: client.PostMeta().list({}) / client.PostMeta().load({"id": ...})."""
         from entity.post_meta_entity import PostMetaEntity
         return PostMetaEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "ImgurSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -274,3 +254,10 @@ class ImgurSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.image_entity import ImageEntity
+    from entity.post_meta_entity import PostMetaEntity

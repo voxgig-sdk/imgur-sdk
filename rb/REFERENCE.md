@@ -90,7 +90,7 @@ same parameters as `direct()`. Raises on error.
 ## ImageEntity
 
 ```ruby
-image = client.image
+image = client.Image
 ```
 
 ### Fields
@@ -115,7 +115,7 @@ image = client.image
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.image.load({ "id" => "image_id" })
+result = client.Image.load({ "id" => "image_id" })
 ```
 
 ### Common Methods
@@ -151,7 +151,7 @@ Return the entity name.
 ## PostMetaEntity
 
 ```ruby
-post_meta = client.post_meta
+post_meta = client.PostMeta
 ```
 
 ### Fields
@@ -168,7 +168,7 @@ post_meta = client.post_meta
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.post_meta.list(nil)
+results = client.PostMeta.list(nil)
 ```
 
 ### Common Methods

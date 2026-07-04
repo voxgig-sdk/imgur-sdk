@@ -208,26 +208,14 @@ class ImgurSDK
   end
 
 
-  # Idiomatic facade: client.image.list / client.image.load({ "id" => ... })
-  def image
-    require_relative 'entity/image_entity'
-    @image ||= ImageEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.image instead.
+  # Canonical facade: client.Image.list / client.Image.load({ "id" => ... })
   def Image(data = nil)
     require_relative 'entity/image_entity'
     ImageEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.post_meta.list / client.post_meta.load({ "id" => ... })
-  def post_meta
-    require_relative 'entity/post_meta_entity'
-    @post_meta ||= PostMetaEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.post_meta instead.
+  # Canonical facade: client.PostMeta.list / client.PostMeta.load({ "id" => ... })
   def PostMeta(data = nil)
     require_relative 'entity/post_meta_entity'
     PostMetaEntity.new(self, data)

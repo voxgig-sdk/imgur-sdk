@@ -233,10 +233,10 @@ class ImgurSDK
 
     private $_image = null;
 
-    // Idiomatic facade: $client->image()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Image() (PHP method
-    // names are case-insensitive).
-    public function image($data = null)
+    // Canonical facade: $client->Image()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->image()
+    // resolves here too.
+    public function Image($data = null)
     {
         require_once __DIR__ . '/entity/image_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class ImgurSDK
 
     private $_post_meta = null;
 
-    // Idiomatic facade: $client->post_meta()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias PostMeta() (PHP method
-    // names are case-insensitive).
-    public function post_meta($data = null)
+    // Canonical facade: $client->PostMeta()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->post_meta()
+    // resolves here too.
+    public function PostMeta($data = null)
     {
         require_once __DIR__ . '/entity/post_meta_entity.php';
         if ($data === null) {

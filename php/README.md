@@ -33,9 +33,10 @@ $client = new ImgurSDK();
 
 ```php
 try {
-    $result = $client->image()->load(["id" => "example_id"]);
-    print_r($result);
-} catch (\Exception $err) {
+    // load() returns the bare Image record (throws on error).
+    $image = $client->Image()->load(["id" => "example_id"]);
+    print_r($image);
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -81,13 +82,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = ImgurSDK::test();
+$client = ImgurSDK::test([
+    "entity" => ["image" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->image()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$image = $client->Image()->load(["id" => "test01"]);
+print_r($image);
 ```
 
 ### Use a custom fetch function
@@ -166,7 +171,7 @@ Creates a test-mode client with mock transport. Both arguments may be `null`.
 | `get_utility` | `(): Utility` | Copy of the SDK utility object. |
 | `prepare` | `(array $fetchargs): array` | Build an HTTP request definition without sending. |
 | `direct` | `(array $fetchargs): array` | Build and send an HTTP request. |
-| `Image` | `($data): ImageEntity` | Create a Image entity instance. |
+| `Image` | `($data): ImageEntity` | Create an Image entity instance. |
 | `PostMeta` | `($data): PostMetaEntity` | Create a PostMeta entity instance. |
 
 ### Entity interface
@@ -244,7 +249,7 @@ API path: `/post/{postId}/meta`
 
 ### Image
 
-Create an instance: `const image = client.image`
+Create an instance: `$image = $client->Image();`
 
 #### Operations
 
@@ -269,14 +274,15 @@ Create an instance: `const image = client.image`
 
 #### Example: Load
 
-```ts
-const image = await client.image.load({ id: 'image_id' })
+```php
+// load() returns the bare Image record (throws on error).
+$image = $client->Image()->load(["id" => "image_id"]);
 ```
 
 
 ### PostMeta
 
-Create an instance: `const post_meta = client.post_meta`
+Create an instance: `$post_meta = $client->PostMeta();`
 
 #### Operations
 
@@ -293,8 +299,9 @@ Create an instance: `const post_meta = client.post_meta`
 
 #### Example: List
 
-```ts
-const post_metas = await client.post_meta.list()
+```php
+// list() returns an array of PostMeta records (throws on error).
+$post_metas = $client->PostMeta()->list();
 ```
 
 
@@ -369,7 +376,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$image = $client->image();
+$image = $client->Image();
 $image->load(["id" => "example_id"]);
 
 // $image->dataGet() now returns the loaded image data

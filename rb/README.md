@@ -32,8 +32,9 @@ client = ImgurSDK.new
 
 ```ruby
 begin
-  result = client.image.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare Image record (raises on error).
+  image = client.Image.load({ "id" => "example_id" })
+  puts image
 rescue => err
   warn "load failed: #{err}"
 end
@@ -80,13 +81,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = ImgurSDK.test
+client = ImgurSDK.test({
+  "entity" => { "image" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.image.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+image = client.Image.load({ "id" => "test01" })
+puts image
 ```
 
 ### Use a custom fetch function
@@ -162,7 +167,7 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> Hash` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> Hash` | Build and send an HTTP request. Returns a result hash (`result["ok"]`); does not raise. |
-| `Image` | `(data) -> ImageEntity` | Create a Image entity instance. |
+| `Image` | `(data) -> ImageEntity` | Create an Image entity instance. |
 | `PostMeta` | `(data) -> PostMetaEntity` | Create a PostMeta entity instance. |
 
 ### Entity interface
@@ -239,7 +244,7 @@ API path: `/post/{postId}/meta`
 
 ### Image
 
-Create an instance: `const image = client.image`
+Create an instance: `image = client.Image`
 
 #### Operations
 
@@ -264,14 +269,15 @@ Create an instance: `const image = client.image`
 
 #### Example: Load
 
-```ts
-const image = await client.image.load({ id: 'image_id' })
+```ruby
+# load returns the bare Image record (raises on error).
+image = client.Image.load({ "id" => "image_id" })
 ```
 
 
 ### PostMeta
 
-Create an instance: `const post_meta = client.post_meta`
+Create an instance: `post_meta = client.PostMeta`
 
 #### Operations
 
@@ -288,8 +294,9 @@ Create an instance: `const post_meta = client.post_meta`
 
 #### Example: List
 
-```ts
-const post_metas = await client.post_meta.list()
+```ruby
+# list returns an Array of PostMeta records (raises on error).
+post_metas = client.PostMeta.list
 ```
 
 
@@ -364,7 +371,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-image = client.image
+image = client.Image
 image.load({ "id" => "example_id" })
 
 # image.data_get now returns the loaded image data

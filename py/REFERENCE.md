@@ -84,7 +84,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## ImageEntity
 
 ```python
-image = client.image
+image = client.Image()
 ```
 
 ### Fields
@@ -109,7 +109,7 @@ image = client.image
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.image.load({"id": "image_id"})
+result = client.Image().load({"id": "image_id"})
 ```
 
 ### Common Methods
@@ -144,7 +144,7 @@ Return the entity name.
 ## PostMetaEntity
 
 ```python
-post_meta = client.post_meta
+post_meta = client.PostMeta()
 ```
 
 ### Fields
@@ -161,7 +161,9 @@ post_meta = client.post_meta
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.post_meta.list({})
+results = client.PostMeta().list({})
+for post_meta in results:
+    print(post_meta)
 ```
 
 ### Common Methods
