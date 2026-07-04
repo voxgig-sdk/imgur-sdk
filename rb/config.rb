@@ -15,9 +15,6 @@ module ImgurConfig
       },
       "options" => {
         "base" => "https://imgur.com",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },
@@ -117,6 +114,7 @@ module ImgurConfig
                         "orig" => "image_id",
                         "reqd" => true,
                         "type" => "`$STRING`",
+                        "index$" => 0,
                       },
                     ],
                   },
@@ -185,6 +183,7 @@ module ImgurConfig
                         "orig" => "post_id",
                         "reqd" => true,
                         "type" => "`$STRING`",
+                        "index$" => 0,
                       },
                     ],
                     "query" => [

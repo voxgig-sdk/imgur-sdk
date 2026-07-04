@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch PostMetaListMatch
+---@param ctrl? table
+---@return PostMeta[]
+---@return string? err
 function PostMetaEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

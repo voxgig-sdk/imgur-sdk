@@ -144,16 +144,23 @@ class ImgurSDK:
 
         _, err = utility.prepare_auth(ctx)
         if err is not None:
-            return None, err
+            raise err
 
-        return utility.make_fetch_def(ctx)
+        fetchdef, err = utility.make_fetch_def(ctx)
+        if err is not None:
+            raise err
+
+        return fetchdef
 
     def direct(self, fetchargs=None):
         utility = self._utility
 
-        fetchdef, err = self.prepare(fetchargs)
-        if err is not None:
-            return {"ok": False, "err": err}, None
+        try:
+            fetchdef = self.prepare(fetchargs)
+        except Exception as err:
+            # direct() is the raw-HTTP escape hatch: it never raises, it
+            # returns a result object callers branch on via result["ok"].
+            return {"ok": False, "err": err}
 
         if fetchargs is None:
             fetchargs = {}
@@ -170,13 +177,13 @@ class ImgurSDK:
         fetched, fetch_err = utility.fetcher(ctx, url, fetchdef)
 
         if fetch_err is not None:
-            return {"ok": False, "err": fetch_err}, None
+            return {"ok": False, "err": fetch_err}
 
         if fetched is None:
             return {
                 "ok": False,
                 "err": ctx.make_error("direct_no_response", "response: undefined"),
-            }, None
+            }
 
         if isinstance(fetched, dict):
             status = helpers.to_int(vs.getprop(fetched, "status"))
@@ -205,20 +212,42 @@ class ImgurSDK:
                 "status": status,
                 "headers": headers,
                 "data": json_data,
-            }, None
+            }
 
         return {
             "ok": False,
             "err": ctx.make_error("direct_invalid", "invalid response type"),
-        }, None
+        }
 
+
+    @property
+    def image(self):
+        """Idiomatic facade: client.image.list() / client.image.load({"id": ...})."""
+        from entity.image_entity import ImageEntity
+        cached = getattr(self, "_image", None)
+        if cached is None:
+            cached = ImageEntity(self, None)
+            self._image = cached
+        return cached
 
     def Image(self, data=None):
+        # Deprecated: use client.image instead.
         from entity.image_entity import ImageEntity
         return ImageEntity(self, data)
 
 
+    @property
+    def post_meta(self):
+        """Idiomatic facade: client.post_meta.list() / client.post_meta.load({"id": ...})."""
+        from entity.post_meta_entity import PostMetaEntity
+        cached = getattr(self, "_post_meta", None)
+        if cached is None:
+            cached = PostMetaEntity(self, None)
+            self._post_meta = cached
+        return cached
+
     def PostMeta(self, data=None):
+        # Deprecated: use client.post_meta instead.
         from entity.post_meta_entity import PostMetaEntity
         return PostMetaEntity(self, data)
 

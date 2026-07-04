@@ -15,9 +15,6 @@ def make_config():
         },
         "options": {
             "base": "https://imgur.com",
-            "auth": {
-                "prefix": "Bearer",
-            },
             "headers": {
         "content-type": "application/json",
       },
@@ -117,6 +114,7 @@ def make_config():
                       "orig": "image_id",
                       "reqd": True,
                       "type": "`$STRING`",
+                      "index$": 0,
                     },
                   ],
                 },
@@ -185,6 +183,7 @@ def make_config():
                       "orig": "post_id",
                       "reqd": True,
                       "type": "`$STRING`",
+                      "index$": 0,
                     },
                   ],
                   "query": [

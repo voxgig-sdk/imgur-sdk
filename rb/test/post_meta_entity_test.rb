@@ -45,8 +45,7 @@ class PostMetaEntityTest < Minitest::Test
       "post_id" => setup[:idmap]["post01"],
     }
 
-    post_meta_ref01_list_result, err = post_meta_ref01_ent.list(post_meta_ref01_match, nil)
-    assert_nil err
+    post_meta_ref01_list_result = post_meta_ref01_ent.list(post_meta_ref01_match, nil)
     assert post_meta_ref01_list_result.is_a?(Array)
 
   end
@@ -85,7 +84,6 @@ def post_meta_basic_setup(extra)
     "IMGUR_TEST_POST_META_ENTID" => idmap,
     "IMGUR_TEST_LIVE" => "FALSE",
     "IMGUR_TEST_EXPLAIN" => "FALSE",
-    "IMGUR_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -97,7 +95,6 @@ def post_meta_basic_setup(extra)
   if env["IMGUR_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["IMGUR_APIKEY"],
       },
       extra || {},
     ])

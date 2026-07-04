@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  PostMeta,
+  PostMetaListMatch,
+} from '../ImgurTypes'
 
 // TODO: needs Entity superclass
-class PostMetaEntity extends ImgurEntityBase {
+class PostMetaEntity extends ImgurEntityBase<PostMeta> {
 
   constructor(client: ImgurSDK, entopts: any) {
     super(client, entopts)
@@ -33,7 +37,7 @@ class PostMetaEntity extends ImgurEntityBase {
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: PostMetaListMatch, ctrl?: Control): Promise<PostMeta[]> {
 
     const utility = this._utility
 
@@ -133,7 +137,9 @@ class PostMetaEntity extends ImgurEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<PostMeta[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

@@ -51,8 +51,7 @@ class TestImageEntity:
         image_ref01_match_dt0 = {
             "id": image_ref01_data["id"],
         }
-        image_ref01_data_dt0_loaded, err = image_ref01_ent.load(image_ref01_match_dt0, None)
-        assert err is None
+        image_ref01_data_dt0_loaded = image_ref01_ent.load(image_ref01_match_dt0, None)
         image_ref01_data_dt0_load_result = helpers.to_map(image_ref01_data_dt0_loaded)
         assert image_ref01_data_dt0_load_result is not None
         assert image_ref01_data_dt0_load_result["id"] == image_ref01_data["id"]
@@ -95,7 +94,6 @@ def _image_basic_setup(extra):
         "IMGUR_TEST_IMAGE_ENTID": idmap,
         "IMGUR_TEST_LIVE": "FALSE",
         "IMGUR_TEST_EXPLAIN": "FALSE",
-        "IMGUR_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -106,7 +104,6 @@ def _image_basic_setup(extra):
     if env.get("IMGUR_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("IMGUR_APIKEY"),
             },
             extra or {},
         ])

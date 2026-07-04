@@ -20,9 +20,6 @@ class ImgurConfig
             ],
             "options" => [
                 "base" => "https://imgur.com",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],
@@ -122,6 +119,7 @@ class ImgurConfig
                         'orig' => 'image_id',
                         'reqd' => true,
                         'type' => '`$STRING`',
+                        'index$' => 0,
                       ],
                     ],
                   ],
@@ -190,6 +188,7 @@ class ImgurConfig
                         'orig' => 'post_id',
                         'reqd' => true,
                         'type' => '`$STRING`',
+                        'index$' => 0,
                       ],
                     ],
                     'query' => [

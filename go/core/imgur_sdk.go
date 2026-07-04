@@ -245,11 +245,17 @@ func (sdk *ImgurSDK) Direct(fetchargs map[string]any) (map[string]any, error) {
 }
 
 
+// Image returns a Image entity bound to this client.
+// Idiomatic usage: client.Image(nil).List(nil, nil) or
+// client.Image(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *ImgurSDK) Image(data map[string]any) ImgurEntity {
 	return NewImageEntityFunc(sdk, data)
 }
 
 
+// PostMeta returns a PostMeta entity bound to this client.
+// Idiomatic usage: client.PostMeta(nil).List(nil, nil) or
+// client.PostMeta(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *ImgurSDK) PostMeta(data map[string]any) ImgurEntity {
 	return NewPostMetaEntityFunc(sdk, data)
 }

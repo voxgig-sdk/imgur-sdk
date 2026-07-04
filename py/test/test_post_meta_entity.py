@@ -52,8 +52,7 @@ class TestPostMetaEntity:
             "post_id": setup["idmap"]["post01"],
         }
 
-        post_meta_ref01_list_result, err = post_meta_ref01_ent.list(post_meta_ref01_match, None)
-        assert err is None
+        post_meta_ref01_list_result = post_meta_ref01_ent.list(post_meta_ref01_match, None)
         assert isinstance(post_meta_ref01_list_result, list)
 
 
@@ -94,7 +93,6 @@ def _post_meta_basic_setup(extra):
         "IMGUR_TEST_POST_META_ENTID": idmap,
         "IMGUR_TEST_LIVE": "FALSE",
         "IMGUR_TEST_EXPLAIN": "FALSE",
-        "IMGUR_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -105,7 +103,6 @@ def _post_meta_basic_setup(extra):
     if env.get("IMGUR_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("IMGUR_APIKEY"),
             },
             extra or {},
         ])

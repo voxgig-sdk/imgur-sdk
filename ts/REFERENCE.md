@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -122,7 +121,7 @@ Alias for `ImgurSDK.test()`.
 ## ImageEntity
 
 ```ts
-const image = client.Image()
+const image = client.image
 ```
 
 ### Fields
@@ -147,7 +146,7 @@ const image = client.Image()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Image().load({ id: 'image_id' })
+const result = await client.image.load({ id: 'image_id' })
 ```
 
 ### Common Methods
@@ -181,7 +180,7 @@ Return a copy of the entity options.
 ## PostMetaEntity
 
 ```ts
-const post_meta = client.PostMeta()
+const post_meta = client.post_meta
 ```
 
 ### Fields
@@ -198,7 +197,7 @@ const post_meta = client.PostMeta()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.PostMeta().list()
+const results = await client.post_meta.list()
 ```
 
 ### Common Methods

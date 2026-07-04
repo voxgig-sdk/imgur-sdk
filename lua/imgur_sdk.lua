@@ -244,12 +244,38 @@ end
 
 
 
+-- Idiomatic facade: client:image():list() / client:image():load({ id = ... })
+function ImgurSDK:image(data)
+  local EntityMod = require("entity.image_entity")
+  if data == nil then
+    if self._image == nil then
+      self._image = EntityMod.new(self, nil)
+    end
+    return self._image
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:image() instead.
 function ImgurSDK:Image(data)
   local EntityMod = require("entity.image_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:post_meta():list() / client:post_meta():load({ id = ... })
+function ImgurSDK:post_meta(data)
+  local EntityMod = require("entity.post_meta_entity")
+  if data == nil then
+    if self._post_meta == nil then
+      self._post_meta = EntityMod.new(self, nil)
+    end
+    return self._post_meta
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:post_meta() instead.
 function ImgurSDK:PostMeta(data)
   local EntityMod = require("entity.post_meta_entity")
   return EntityMod.new(self, data)

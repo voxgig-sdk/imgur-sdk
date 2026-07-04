@@ -114,7 +114,6 @@ function basicSetup(extra?: any) {
     'IMGUR_TEST_POST_META_ENTID': idmap,
     'IMGUR_TEST_LIVE': 'FALSE',
     'IMGUR_TEST_EXPLAIN': 'FALSE',
-    'IMGUR_APIKEY': 'NONE',
   })
 
   idmap = env['IMGUR_TEST_POST_META_ENTID']
@@ -124,7 +123,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new ImgurSDK(merge([
       {
-        apikey: env.IMGUR_APIKEY,
       },
       extra
     ]))
