@@ -8,7 +8,7 @@ Complete API reference for the Imgur Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'imgur_sdk'
+require_relative 'Imgur_sdk'
 
 client = ImgurSDK.new(options)
 ```
@@ -97,16 +97,16 @@ image = client.Image
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `created_at` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `height` | ``$INTEGER`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `size` | ``$INTEGER`` | No |  |
-| `title` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
-| `url` | ``$STRING`` | No |  |
-| `view` | ``$INTEGER`` | No |  |
-| `width` | ``$INTEGER`` | No |  |
+| `created_at` | `String` | No |  |
+| `description` | `String` | No |  |
+| `height` | `Integer` | No |  |
+| `id` | `String` | No |  |
+| `size` | `Integer` | No |  |
+| `title` | `String` | No |  |
+| `type` | `String` | No |  |
+| `url` | `String` | No |  |
+| `view` | `Integer` | No |  |
+| `width` | `Integer` | No |  |
 
 ### Operations
 
@@ -158,17 +158,17 @@ post_meta = client.PostMeta
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `count` | ``$INTEGER`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `count` | `Integer` | No |  |
+| `type` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.PostMeta.list(nil)
+results = client.PostMeta.list
 ```
 
 ### Common Methods

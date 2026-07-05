@@ -94,16 +94,16 @@ local image = client:Image(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `created_at` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `height` | ``$INTEGER`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `size` | ``$INTEGER`` | No |  |
-| `title` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
-| `url` | ``$STRING`` | No |  |
-| `view` | ``$INTEGER`` | No |  |
-| `width` | ``$INTEGER`` | No |  |
+| `created_at` | `string` | No |  |
+| `description` | `string` | No |  |
+| `height` | `number` | No |  |
+| `id` | `string` | No |  |
+| `size` | `number` | No |  |
+| `title` | `string` | No |  |
+| `type` | `string` | No |  |
+| `url` | `string` | No |  |
+| `view` | `number` | No |  |
+| `width` | `number` | No |  |
 
 ### Operations
 
@@ -155,8 +155,8 @@ local post_meta = client:PostMeta(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `count` | ``$INTEGER`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `count` | `number` | No |  |
+| `type` | `string` | No |  |
 
 ### Operations
 

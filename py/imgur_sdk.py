@@ -221,13 +221,13 @@ class ImgurSDK:
 
 
     def Image(self, data=None) -> "ImageEntity":
-        """Entity factory: client.Image().list({}) / client.Image().load({"id": ...})."""
+        """Entity factory: client.Image().list() / client.Image().load({"id": ...})."""
         from entity.image_entity import ImageEntity
         return ImageEntity(self, data)
 
 
     def PostMeta(self, data=None) -> "PostMetaEntity":
-        """Entity factory: client.PostMeta().list({}) / client.PostMeta().load({"id": ...})."""
+        """Entity factory: client.PostMeta().list() / client.PostMeta().load({"id": ...})."""
         from entity.post_meta_entity import PostMetaEntity
         return PostMetaEntity(self, data)
 

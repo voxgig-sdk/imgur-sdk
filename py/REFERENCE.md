@@ -91,16 +91,16 @@ image = client.Image()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `created_at` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `height` | ``$INTEGER`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `size` | ``$INTEGER`` | No |  |
-| `title` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
-| `url` | ``$STRING`` | No |  |
-| `view` | ``$INTEGER`` | No |  |
-| `width` | ``$INTEGER`` | No |  |
+| `created_at` | `str` | No |  |
+| `description` | `str` | No |  |
+| `height` | `int` | No |  |
+| `id` | `str` | No |  |
+| `size` | `int` | No |  |
+| `title` | `str` | No |  |
+| `type` | `str` | No |  |
+| `url` | `str` | No |  |
+| `view` | `int` | No |  |
+| `width` | `int` | No |  |
 
 ### Operations
 
@@ -151,17 +151,17 @@ post_meta = client.PostMeta()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `count` | ``$INTEGER`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `count` | `int` | No |  |
+| `type` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.PostMeta().list({})
+results = client.PostMeta().list()
 for post_meta in results:
     print(post_meta)
 ```
