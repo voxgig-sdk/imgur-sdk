@@ -51,7 +51,7 @@ func main() {
     client := sdk.New()
 
     // Load a single image — the value is the loaded record.
-    image, err := client.Image(nil).Load(map[string]any{"id": "example"}, nil)
+    image, err := client.Image(nil).Load(map[string]any{"id": "example_id"}, nil)
     if err != nil {
         panic(err)
     }
@@ -330,7 +330,7 @@ fmt.Println(image) // the loaded record
 
 ### PostMeta
 
-Create an instance: `post_meta := client.PostMeta(nil)`
+Create an instance: `postMeta := client.PostMeta(nil)`
 
 #### Operations
 
@@ -348,11 +348,11 @@ Create an instance: `post_meta := client.PostMeta(nil)`
 #### Example: List
 
 ```go
-post_metas, err := client.PostMeta(nil).List(nil, nil)
+postMetas, err := client.PostMeta(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(post_metas) // the array of records
+fmt.Println(postMetas) // the array of records
 ```
 
 

@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -384,14 +381,17 @@
           "url": "https://github.com/l0v3m0n3y/imgur"
         },
         "description": "This API provides access to the functionalities of Imgur, allowing users to find, rate, and share memes and images from the platform. It enables easy integration with various applications, offering capabilities such as retrieving image metadata and managing user accounts.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Imgur API Server",
             "url": "https://imgur.com"
           }
         ],
+        "summary": "This API provides access to the functionalities of Imgur, allowing users to find, rate, and share memes and images from the platform.",
         "title": "Imgur API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://imgur.com"
       },
       "option": {},
       "target": {
@@ -444,6 +444,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -494,6 +497,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

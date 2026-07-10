@@ -15,9 +15,9 @@ main: {
           url: "https://imgur.com"
         }
       ]
+      summary: "This API provides access to the functionalities of Imgur, allowing users to find, rate, and share memes and images from the platform."
       title: "Imgur API"
       version: "1.0.0"
+      website: "https://imgur.com"
     }
   }
-}
-

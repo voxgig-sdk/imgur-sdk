@@ -95,6 +95,7 @@ same parameters as `Direct()`.
 
 ```go
 image := client.Image(nil)
+fmt.Println(image.GetName()) // "image"
 ```
 
 ### Fields
@@ -120,6 +121,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Image(nil).Load(map[string]any{"id": "image_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -149,7 +154,8 @@ Return the entity name.
 ## PostMetaEntity
 
 ```go
-post_meta := client.PostMeta(nil)
+postMeta := client.PostMeta(nil)
+fmt.Println(postMeta.GetName()) // "post_meta"
 ```
 
 ### Fields
@@ -167,6 +173,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.PostMeta(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods
