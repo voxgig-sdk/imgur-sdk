@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- Imgur SDK exists test
 
 local sdk = require("imgur_sdk")
 
