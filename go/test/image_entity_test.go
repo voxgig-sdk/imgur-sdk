@@ -68,7 +68,7 @@ func TestImageEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		imageRef01DataDt0LoadResult := core.ToMapAny(imageRef01DataDt0Loaded)
+		imageRef01DataDt0LoadResult := core.ToMapAny(entityData(imageRef01DataDt0Loaded))
 		if imageRef01DataDt0LoadResult == nil {
 			t.Fatal("expected load result to be a map")
 		}

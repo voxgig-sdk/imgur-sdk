@@ -35,7 +35,7 @@ $client = new ImgurSDK();
 
 ```php
 try {
-    // load() returns the bare Image record (throws on error).
+    // load() returns the ENTITY — call data_get() for the Image record (throws on error).
     $image = $client->Image()->load(["id" => "example_id"]);
     print_r($image);
 } catch (\Throwable $err) {
@@ -126,7 +126,8 @@ $client = ImgurSDK::test([
     "entity" => ["image" => ["test01" => ["id" => "test01"]]],
 ]);
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $image = $client->Image()->load(["id" => "test01"]);
 print_r($image);
 ```
@@ -227,7 +228,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -257,7 +258,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 | `title` |  |
 | `type` |  |
 | `url` |  |
-| `view` |  |
+| `views` |  |
 | `width` |  |
 
 Operations: Load.
@@ -302,13 +303,13 @@ Create an instance: `$image = $client->Image();`
 | `title` | `string` |  |
 | `type` | `string` |  |
 | `url` | `string` |  |
-| `view` | `int` |  |
+| `views` | `int` |  |
 | `width` | `int` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Image record (throws on error).
+// load() returns the ENTITY — call data_get() for the Image record (throws on error).
 $image = $client->Image()->load(["id" => "image_id"]);
 ```
 

@@ -46,7 +46,7 @@ main: kit: entity: image: {
       type: "`$STRING`"
     }
     {
-      name: "view"
+      name: "views"
       req: false
       type: "`$INTEGER`"
     }

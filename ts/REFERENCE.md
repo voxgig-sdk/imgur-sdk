@@ -136,7 +136,7 @@ const image = client.Image()
 | `title` | `string` | No |  |
 | `type` | `string` | No |  |
 | `url` | `string` | No |  |
-| `view` | `number` | No |  |
+| `views` | `number` | No |  |
 | `width` | `number` | No |  |
 
 ### Operations
@@ -197,7 +197,7 @@ const post_meta = client.PostMeta()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.PostMeta().list()
+const results = await client.PostMeta().list({ id: "example" })
 ```
 
 ### Common Methods

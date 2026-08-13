@@ -89,7 +89,7 @@ class ImgurConfig
             ],
             [
               'active' => true,
-              'name' => 'view',
+              'name' => 'views',
               'req' => false,
               'type' => '`$INTEGER`',
               'index$' => 8,
@@ -123,6 +123,7 @@ class ImgurConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/images/{imageId}',
                   'parts' => [
@@ -203,6 +204,7 @@ class ImgurConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/post/{postId}/meta',
                   'parts' => [

@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from imgur_sdk.utility.voxgig_struct import voxgig_struct as vs
 from imgur_sdk import ImgurSDK
-from core import helpers
+from imgur_sdk.core import helpers
 from test import runner
 
 

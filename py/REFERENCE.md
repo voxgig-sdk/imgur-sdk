@@ -99,7 +99,7 @@ image = client.Image()
 | `title` | `str` | No |  |
 | `type` | `str` | No |  |
 | `url` | `str` | No |  |
-| `view` | `int` | No |  |
+| `views` | `int` | No |  |
 | `width` | `int` | No |  |
 
 ### Operations
@@ -161,7 +161,7 @@ post_meta = client.PostMeta()
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.PostMeta().list()
+results = client.PostMeta().list({"id": "example"})
 for post_meta in results:
     print(post_meta)
 ```

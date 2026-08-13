@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import ImgurSDK
-from core.error import ImgurError
-from core.result import ImgurResult
-from core.response import ImgurResponse
-from core.spec import ImgurSpec
-from feature.base_feature import ImgurBaseFeature
+from projectname_sdk.core.error import ImgurError
+from projectname_sdk.core.result import ImgurResult
+from projectname_sdk.core.response import ImgurResponse
+from projectname_sdk.core.spec import ImgurSpec
+from projectname_sdk.feature.base_feature import ImgurBaseFeature
 
 
 def _client():

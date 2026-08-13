@@ -104,7 +104,7 @@ $image = $client->Image();
 | `title` | `string` | No |  |
 | `type` | `string` | No |  |
 | `url` | `string` | No |  |
-| `view` | `int` | No |  |
+| `views` | `int` | No |  |
 | `width` | `int` | No |  |
 
 ### Operations

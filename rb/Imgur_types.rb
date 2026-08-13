@@ -34,7 +34,7 @@
 # @!attribute [rw] url
 #   @return [String, nil]
 #
-# @!attribute [rw] view
+# @!attribute [rw] views
 #   @return [Integer, nil]
 #
 # @!attribute [rw] width
@@ -48,7 +48,7 @@ Image = Struct.new(
   :title,
   :type,
   :url,
-  :view,
+  :views,
   :width,
   keyword_init: true
 )

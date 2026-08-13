@@ -10,7 +10,7 @@
         "title": "s69",
         "type": "s6a",
         "url": "s6b",
-        "view": "s6c",
+        "views": "s6c",
         "width": "s6d"
       },
       "IMAGE01": {
@@ -22,7 +22,7 @@
         "title": "scd",
         "type": "sce",
         "url": "scf",
-        "view": "sd0",
+        "views": "sd0",
         "width": "sd1"
       },
       "IMAGE02": {
@@ -34,7 +34,7 @@
         "title": "s131",
         "type": "s132",
         "url": "s133",
-        "view": "s134",
+        "views": "s134",
         "width": "s135"
       }
     }
@@ -49,7 +49,7 @@
         "title": "s195",
         "type": "s196",
         "url": "s197",
-        "view": "s198",
+        "views": "s198",
         "width": "s199"
       }
     }

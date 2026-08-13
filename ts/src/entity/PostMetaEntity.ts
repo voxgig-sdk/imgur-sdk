@@ -37,7 +37,7 @@ class PostMetaEntity extends ImgurEntityBase<PostMeta> {
 
 
 
-  async list(this: any, reqmatch?: PostMetaListMatch, ctrl?: Control): Promise<PostMeta[]> {
+  async list(this: any, reqmatch?: PostMetaListMatch, ctrl?: Control): Promise<PostMetaEntity[]> {
 
     const utility = this._utility
 

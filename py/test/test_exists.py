@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# Imgur SDK exists test
 
 import pytest
 from imgur_sdk import ImgurSDK

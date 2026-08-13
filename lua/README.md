@@ -236,7 +236,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | `title` |  |
 | `type` |  |
 | `url` |  |
-| `view` |  |
+| `views` |  |
 | `width` |  |
 
 Operations: Load.
@@ -281,7 +281,7 @@ Create an instance: `local image = client:Image(nil)`
 | `title` | `string` |  |
 | `type` | `string` |  |
 | `url` | `string` |  |
-| `view` | `number` |  |
+| `views` | `number` |  |
 | `width` | `number` |  |
 
 #### Example: Load

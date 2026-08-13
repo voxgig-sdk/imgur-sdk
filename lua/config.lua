@@ -83,7 +83,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "view",
+            ["name"] = "views",
             ["req"] = false,
             ["type"] = "`$INTEGER`",
             ["index$"] = 8,
@@ -117,6 +117,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/images/{imageId}",
                 ["parts"] = {
@@ -197,6 +198,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/post/{postId}/meta",
                 ["parts"] = {

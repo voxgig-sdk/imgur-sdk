@@ -14,7 +14,7 @@ export interface Image {
   title?: string
   type?: string
   url?: string
-  view?: number
+  views?: number
   width?: number
 }
 

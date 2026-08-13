@@ -269,7 +269,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | `"title"` |  |
 | `"type"` |  |
 | `"url"` |  |
-| `"view"` |  |
+| `"views"` |  |
 | `"width"` |  |
 
 Operations: Load.
@@ -314,7 +314,7 @@ Create an instance: `image := client.Image(nil)`
 | `title` | `string` |  |
 | `type` | `string` |  |
 | `url` | `string` |  |
-| `view` | `int` |  |
+| `views` | `int` |  |
 | `width` | `int` |  |
 
 #### Example: Load

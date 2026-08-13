@@ -23,7 +23,7 @@ support (`list`, `load`):
 
 ```ts
 const client = new ImgurSDK()
-const image = await client.Image().load()
+const image = await client.Image().load({ id: "example_id" })
 ```
 
 Thinking in entities keeps the mental model small — for people and AI agents alike —
@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = ImgurSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = ImgurSDK.test({
+  entity: {
+    image: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const image = await client.Image().load({ id: 'test01' })
-// image is a bare Image populated with mock data
+// image is the Image entity, populated with mock data
+// — call image.data() for the record itself
 console.log(image)
 ```
 
@@ -183,7 +192,7 @@ require_once 'imgur_sdk.php';
 $client = new ImgurSDK();
 
 
-// Load a specific image (returns the bare record; throws on error)
+// Load a specific image (returns the ENTITY; call data_get() for the record; throws on error)
 $image = $client->Image()->load(["id" => "example_id"]);
 print_r($image);
 ```
@@ -211,7 +220,7 @@ require_relative "Imgur_sdk"
 client = ImgurSDK.new
 
 
-# Load a specific image (returns the bare record; raises on error)
+# Load a specific image (returns the ENTITY; call data_get for the record)
 image = client.Image.load({ "id" => "example_id" })
 puts image
 ```
@@ -345,6 +354,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://github.com/l0v3m0n3y/imgur](https://github.com/l0v3m0n3y/imgur)
 

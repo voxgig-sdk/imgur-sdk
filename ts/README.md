@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = ImgurSDK.test()
 
 const image = await client.Image().load({ id: 'test01' })
-// image is a bare entity populated with mock response data
+// image is the entity, populated with mock response data
+// — call image.data() for the record itself
 console.log(image)
 ```
 
@@ -296,7 +297,7 @@ The `prepare()` method returns:
 | `title` |  |
 | `type` |  |
 | `url` |  |
-| `view` |  |
+| `views` |  |
 | `width` |  |
 
 Operations: load.
@@ -341,7 +342,7 @@ Create an instance: `const image = client.Image()`
 | `title` | `string` |  |
 | `type` | `string` |  |
 | `url` | `string` |  |
-| `view` | `number` |  |
+| `views` | `number` |  |
 | `width` | `number` |  |
 
 #### Example: Load
@@ -371,7 +372,7 @@ Create an instance: `const post_meta = client.PostMeta()`
 #### Example: List
 
 ```ts
-const post_metas = await client.PostMeta().list()
+const post_metas = await client.PostMeta().list({ id: "example" })
 ```
 
 

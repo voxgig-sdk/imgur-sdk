@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from imgur_sdk.utility.voxgig_struct import voxgig_struct as vs
 from imgur_sdk import ImgurSDK
-from core import helpers
+from imgur_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -52,7 +52,7 @@ class TestImageEntity:
             "id": image_ref01_data["id"],
         }
         image_ref01_data_dt0_loaded = image_ref01_ent.load(image_ref01_match_dt0, None)
-        image_ref01_data_dt0_load_result = helpers.to_map(image_ref01_data_dt0_loaded)
+        image_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(image_ref01_data_dt0_loaded))
         assert image_ref01_data_dt0_load_result is not None
         assert image_ref01_data_dt0_load_result["id"] == image_ref01_data["id"]
 

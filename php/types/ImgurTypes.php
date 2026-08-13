@@ -23,7 +23,7 @@ class Image
     public ?string $title = null;
     public ?string $type = null;
     public ?string $url = null;
-    public ?int $view = null;
+    public ?int $views = null;
     public ?int $width = null;
 }
 

@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ ImgurUtility.registrar = ->(u) {
   u.prepare_params = ImgurUtilities::PrepareParams
   u.prepare_path = ImgurUtilities::PreparePath
   u.prepare_query = ImgurUtilities::PrepareQuery
+  u.graphql_body = ImgurUtilities::GraphqlBody
+  u.graphql_errors = ImgurUtilities::GraphqlErrors
   u.result_basic = ImgurUtilities::ResultBasic
   u.result_body = ImgurUtilities::ResultBody
   u.result_headers = ImgurUtilities::ResultHeaders

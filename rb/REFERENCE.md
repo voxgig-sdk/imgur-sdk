@@ -105,7 +105,7 @@ image = client.Image
 | `title` | `String` | No |  |
 | `type` | `String` | No |  |
 | `url` | `String` | No |  |
-| `view` | `Integer` | No |  |
+| `views` | `Integer` | No |  |
 | `width` | `Integer` | No |  |
 
 ### Operations

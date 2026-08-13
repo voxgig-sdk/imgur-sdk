@@ -102,7 +102,7 @@ local image = client:Image(nil)
 | `title` | `string` | No |  |
 | `type` | `string` | No |  |
 | `url` | `string` | No |  |
-| `view` | `number` | No |  |
+| `views` | `number` | No |  |
 | `width` | `number` | No |  |
 
 ### Operations

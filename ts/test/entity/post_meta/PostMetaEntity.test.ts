@@ -64,7 +64,7 @@ describe('PostMetaEntity', async () => {
     const post_meta_ref01_match: any = {}
     post_meta_ref01_match['post_id'] = setup.idmap['post01']
 
-    const post_meta_ref01_list = await post_meta_ref01_ent.list(post_meta_ref01_match)
+    const post_meta_ref01_list = (await post_meta_ref01_ent.list(post_meta_ref01_match)).map((e: any) => e.data())
 
 
   })

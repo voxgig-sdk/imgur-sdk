@@ -84,7 +84,7 @@ module ImgurConfig
             },
             {
               "active" => true,
-              "name" => "view",
+              "name" => "views",
               "req" => false,
               "type" => "`$INTEGER`",
               "index$" => 8,
@@ -118,6 +118,7 @@ module ImgurConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/images/{imageId}",
                   "parts" => [
@@ -198,6 +199,7 @@ module ImgurConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/post/{postId}/meta",
                   "parts" => [

@@ -15,7 +15,7 @@
 ---@field title? string
 ---@field type? string
 ---@field url? string
----@field view? number
+---@field views? number
 ---@field width? number
 
 ---@class ImageLoadMatch

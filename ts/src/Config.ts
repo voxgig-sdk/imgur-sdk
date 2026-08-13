@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'Imgur',
   }
 
 
@@ -115,7 +115,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "view",
+          "name": "views",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 8
@@ -149,6 +149,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/images/{imageId}",
               "parts": [
@@ -229,6 +230,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/post/{postId}/meta",
               "parts": [

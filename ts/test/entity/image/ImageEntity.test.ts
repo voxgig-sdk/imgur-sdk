@@ -63,7 +63,7 @@ describe('ImageEntity', async () => {
     const image_ref01_ent = client.Image()
     const image_ref01_match_dt0: any = {}
     image_ref01_match_dt0.id = image_ref01_data.id
-    const image_ref01_data_dt0 = await image_ref01_ent.load(image_ref01_match_dt0)
+    const image_ref01_data_dt0 = (await image_ref01_ent.load(image_ref01_match_dt0)).data()
     assert(image_ref01_data_dt0.id === image_ref01_data.id)
 
 

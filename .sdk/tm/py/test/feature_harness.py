@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import ImgurControl
-from core.error import ImgurError
-from core.result import ImgurResult
-from core.spec import ImgurSpec
+from projectname_sdk.config import make_config
+from projectname_sdk.features import _make_feature
+from projectname_sdk.core.control import ImgurControl
+from projectname_sdk.core.error import ImgurError
+from projectname_sdk.core.result import ImgurResult
+from projectname_sdk.core.spec import ImgurSpec
 
 
 # True when this SDK was generated with the named feature.

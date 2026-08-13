@@ -49,7 +49,7 @@ describe("ImageEntity", function()
     }
     local image_ref01_data_dt0_loaded, err = image_ref01_ent:load(image_ref01_match_dt0, nil)
     assert.is_nil(err)
-    local image_ref01_data_dt0_load_result = helpers.to_map(image_ref01_data_dt0_loaded)
+    local image_ref01_data_dt0_load_result = helpers.to_map(type(image_ref01_data_dt0_loaded) == 'table' and image_ref01_data_dt0_loaded.data_get and image_ref01_data_dt0_loaded:data_get() or image_ref01_data_dt0_loaded)
     assert.is_not_nil(image_ref01_data_dt0_load_result)
     assert.are.equal(image_ref01_data_dt0_load_result["id"], image_ref01_data["id"])
 
