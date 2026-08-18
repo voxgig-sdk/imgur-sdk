@@ -28,7 +28,7 @@ class ImgurSDK
     utility = ImgurUtility.new
     @_utility = utility
 
-    config = ImgurConfig.make_config
+    config = ImgurConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

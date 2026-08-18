@@ -40,7 +40,7 @@ class ImgurSDK
         $utility = new ImgurUtility();
         $this->_utility = $utility;
 
-        $config = ImgurConfig::make_config();
+        $config = ImgurConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

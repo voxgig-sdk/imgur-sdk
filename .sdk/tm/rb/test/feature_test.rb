@@ -15,7 +15,7 @@ require_relative "../Imgur_sdk"
 module ImgurFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = ImgurConfig.make_config["feature"]
+    f = ImgurConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 
