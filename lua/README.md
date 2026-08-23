@@ -228,16 +228,16 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `created_at` |  |
-| `description` |  |
-| `height` |  |
-| `id` |  |
-| `size` |  |
-| `title` |  |
-| `type` |  |
-| `url` |  |
-| `views` |  |
-| `width` |  |
+| `created_at` | Image upload timestamp |
+| `description` | Image description |
+| `height` | Image height in pixels |
+| `id` | Image ID |
+| `size` | File size in bytes |
+| `title` | Image title |
+| `type` | MIME type of the image |
+| `url` | Direct URL to the image |
+| `views` | Number of views |
+| `width` | Image width in pixels |
 
 Operations: Load.
 
@@ -247,8 +247,8 @@ API path: `/images/{imageId}`
 
 | Field | Description |
 | --- | --- |
-| `count` |  |
-| `type` |  |
+| `count` | Number of accolades of this type |
+| `type` | Accolade type |
 
 Operations: List.
 
@@ -273,16 +273,16 @@ Create an instance: `local image = client:Image(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `created_at` | `string` |  |
-| `description` | `string` |  |
-| `height` | `number` |  |
-| `id` | `string` |  |
-| `size` | `number` |  |
-| `title` | `string` |  |
-| `type` | `string` |  |
-| `url` | `string` |  |
-| `views` | `number` |  |
-| `width` | `number` |  |
+| `created_at` | `string` | Image upload timestamp |
+| `description` | `string` | Image description |
+| `height` | `number` | Image height in pixels |
+| `id` | `string` | Image ID |
+| `size` | `number` | File size in bytes |
+| `title` | `string` | Image title |
+| `type` | `string` | MIME type of the image |
+| `url` | `string` | Direct URL to the image |
+| `views` | `number` | Number of views |
+| `width` | `number` | Image width in pixels |
 
 #### Example: Load
 
@@ -305,8 +305,8 @@ Create an instance: `local post_meta = client:PostMeta(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `count` | `number` |  |
-| `type` | `string` |  |
+| `count` | `number` | Number of accolades of this type |
+| `type` | `string` | Accolade type |
 
 #### Example: List
 

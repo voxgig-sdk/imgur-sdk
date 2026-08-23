@@ -96,16 +96,16 @@ $image = $client->Image();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `created_at` | `string` | No |  |
-| `description` | `string` | No |  |
-| `height` | `int` | No |  |
-| `id` | `string` | No |  |
-| `size` | `int` | No |  |
-| `title` | `string` | No |  |
-| `type` | `string` | No |  |
-| `url` | `string` | No |  |
-| `views` | `int` | No |  |
-| `width` | `int` | No |  |
+| `created_at` | `string` | No | Image upload timestamp |
+| `description` | `string` | No | Image description |
+| `height` | `int` | No | Image height in pixels |
+| `id` | `string` | No | Image ID |
+| `size` | `int` | No | File size in bytes |
+| `title` | `string` | No | Image title |
+| `type` | `string` | No | MIME type of the image |
+| `url` | `string` | No | Direct URL to the image |
+| `views` | `int` | No | Number of views |
+| `width` | `int` | No | Image width in pixels |
 
 ### Operations
 
@@ -157,8 +157,8 @@ $post_meta = $client->PostMeta();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `count` | `int` | No |  |
-| `type` | `string` | No |  |
+| `count` | `int` | No | Number of accolades of this type |
+| `type` | `string` | No | Accolade type |
 
 ### Operations
 

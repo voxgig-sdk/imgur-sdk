@@ -240,16 +240,16 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `created_at` |  |
-| `description` |  |
-| `height` |  |
-| `id` |  |
-| `size` |  |
-| `title` |  |
-| `type` |  |
-| `url` |  |
-| `views` |  |
-| `width` |  |
+| `created_at` | Image upload timestamp |
+| `description` | Image description |
+| `height` | Image height in pixels |
+| `id` | Image ID |
+| `size` | File size in bytes |
+| `title` | Image title |
+| `type` | MIME type of the image |
+| `url` | Direct URL to the image |
+| `views` | Number of views |
+| `width` | Image width in pixels |
 
 Operations: Load.
 
@@ -259,8 +259,8 @@ API path: `/images/{imageId}`
 
 | Field | Description |
 | --- | --- |
-| `count` |  |
-| `type` |  |
+| `count` | Number of accolades of this type |
+| `type` | Accolade type |
 
 Operations: List.
 
@@ -285,16 +285,16 @@ Create an instance: `image = client.Image`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `created_at` | `String` |  |
-| `description` | `String` |  |
-| `height` | `Integer` |  |
-| `id` | `String` |  |
-| `size` | `Integer` |  |
-| `title` | `String` |  |
-| `type` | `String` |  |
-| `url` | `String` |  |
-| `views` | `Integer` |  |
-| `width` | `Integer` |  |
+| `created_at` | `String` | Image upload timestamp |
+| `description` | `String` | Image description |
+| `height` | `Integer` | Image height in pixels |
+| `id` | `String` | Image ID |
+| `size` | `Integer` | File size in bytes |
+| `title` | `String` | Image title |
+| `type` | `String` | MIME type of the image |
+| `url` | `String` | Direct URL to the image |
+| `views` | `Integer` | Number of views |
+| `width` | `Integer` | Image width in pixels |
 
 #### Example: Load
 
@@ -318,8 +318,8 @@ Create an instance: `post_meta = client.PostMeta`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `count` | `Integer` |  |
-| `type` | `String` |  |
+| `count` | `Integer` | Number of accolades of this type |
+| `type` | `String` | Accolade type |
 
 #### Example: List
 

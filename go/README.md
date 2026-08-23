@@ -6,7 +6,7 @@ The Golang SDK for the Imgur API — an entity-oriented client using standard Go
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Image(nil)` — each with the same small set of operations (`List`, `Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -261,16 +261,16 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"created_at"` |  |
-| `"description"` |  |
-| `"height"` |  |
-| `"id"` |  |
-| `"size"` |  |
-| `"title"` |  |
-| `"type"` |  |
-| `"url"` |  |
-| `"views"` |  |
-| `"width"` |  |
+| `"created_at"` | Image upload timestamp |
+| `"description"` | Image description |
+| `"height"` | Image height in pixels |
+| `"id"` | Image ID |
+| `"size"` | File size in bytes |
+| `"title"` | Image title |
+| `"type"` | MIME type of the image |
+| `"url"` | Direct URL to the image |
+| `"views"` | Number of views |
+| `"width"` | Image width in pixels |
 
 Operations: Load.
 
@@ -280,8 +280,8 @@ API path: `/images/{imageId}`
 
 | Field | Description |
 | --- | --- |
-| `"count"` |  |
-| `"type"` |  |
+| `"count"` | Number of accolades of this type |
+| `"type"` | Accolade type |
 
 Operations: List.
 
@@ -306,16 +306,16 @@ Create an instance: `image := client.Image(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `created_at` | `string` |  |
-| `description` | `string` |  |
-| `height` | `int` |  |
-| `id` | `string` |  |
-| `size` | `int` |  |
-| `title` | `string` |  |
-| `type` | `string` |  |
-| `url` | `string` |  |
-| `views` | `int` |  |
-| `width` | `int` |  |
+| `created_at` | `string` | Image upload timestamp |
+| `description` | `string` | Image description |
+| `height` | `int` | Image height in pixels |
+| `id` | `string` | Image ID |
+| `size` | `int` | File size in bytes |
+| `title` | `string` | Image title |
+| `type` | `string` | MIME type of the image |
+| `url` | `string` | Direct URL to the image |
+| `views` | `int` | Number of views |
+| `width` | `int` | Image width in pixels |
 
 #### Example: Load
 
@@ -342,8 +342,8 @@ Create an instance: `postMeta := client.PostMeta(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `count` | `int` |  |
-| `type` | `string` |  |
+| `count` | `int` | Number of accolades of this type |
+| `type` | `string` | Accolade type |
 
 #### Example: List
 

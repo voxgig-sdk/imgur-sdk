@@ -97,16 +97,16 @@ image = client.Image
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `created_at` | `String` | No |  |
-| `description` | `String` | No |  |
-| `height` | `Integer` | No |  |
-| `id` | `String` | No |  |
-| `size` | `Integer` | No |  |
-| `title` | `String` | No |  |
-| `type` | `String` | No |  |
-| `url` | `String` | No |  |
-| `views` | `Integer` | No |  |
-| `width` | `Integer` | No |  |
+| `created_at` | `String` | No | Image upload timestamp |
+| `description` | `String` | No | Image description |
+| `height` | `Integer` | No | Image height in pixels |
+| `id` | `String` | No | Image ID |
+| `size` | `Integer` | No | File size in bytes |
+| `title` | `String` | No | Image title |
+| `type` | `String` | No | MIME type of the image |
+| `url` | `String` | No | Direct URL to the image |
+| `views` | `Integer` | No | Number of views |
+| `width` | `Integer` | No | Image width in pixels |
 
 ### Operations
 
@@ -158,8 +158,8 @@ post_meta = client.PostMeta
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `count` | `Integer` | No |  |
-| `type` | `String` | No |  |
+| `count` | `Integer` | No | Number of accolades of this type |
+| `type` | `String` | No | Accolade type |
 
 ### Operations
 

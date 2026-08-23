@@ -91,16 +91,16 @@ image = client.Image()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `created_at` | `str` | No |  |
-| `description` | `str` | No |  |
-| `height` | `int` | No |  |
-| `id` | `str` | No |  |
-| `size` | `int` | No |  |
-| `title` | `str` | No |  |
-| `type` | `str` | No |  |
-| `url` | `str` | No |  |
-| `views` | `int` | No |  |
-| `width` | `int` | No |  |
+| `created_at` | `str` | No | Image upload timestamp |
+| `description` | `str` | No | Image description |
+| `height` | `int` | No | Image height in pixels |
+| `id` | `str` | No | Image ID |
+| `size` | `int` | No | File size in bytes |
+| `title` | `str` | No | Image title |
+| `type` | `str` | No | MIME type of the image |
+| `url` | `str` | No | Direct URL to the image |
+| `views` | `int` | No | Number of views |
+| `width` | `int` | No | Image width in pixels |
 
 ### Operations
 
@@ -151,8 +151,8 @@ post_meta = client.PostMeta()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `count` | `int` | No |  |
-| `type` | `str` | No |  |
+| `count` | `int` | No | Number of accolades of this type |
+| `type` | `str` | No | Accolade type |
 
 ### Operations
 

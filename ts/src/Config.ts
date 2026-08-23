@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'Imgur',
+        slug: "imgur",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -59,42 +70,52 @@ class Config {
       "fields": [
         {
           "name": "created_at",
+          "short": "Image upload timestamp",
           "type": "`$STRING`"
         },
         {
           "name": "description",
+          "short": "Image description",
           "type": "`$STRING`"
         },
         {
           "name": "height",
+          "short": "Image height in pixels",
           "type": "`$INTEGER`"
         },
         {
           "name": "id",
+          "short": "Image ID",
           "type": "`$STRING`"
         },
         {
           "name": "size",
+          "short": "File size in bytes",
           "type": "`$INTEGER`"
         },
         {
           "name": "title",
+          "short": "Image title",
           "type": "`$STRING`"
         },
         {
           "name": "type",
+          "short": "MIME type of the image",
           "type": "`$STRING`"
         },
         {
           "name": "url",
+          "short": "Direct URL to the image",
           "type": "`$STRING`"
         },
         {
           "name": "views",
+          "short": "Number of views",
           "type": "`$INTEGER`"
         },
         {
           "name": "width",
+          "short": "Image width in pixels",
           "type": "`$INTEGER`"
         }
       ],
@@ -149,10 +170,12 @@ class Config {
       "fields": [
         {
           "name": "count",
+          "short": "Number of accolades of this type",
           "type": "`$INTEGER`"
         },
         {
           "name": "type",
+          "short": "Accolade type",
           "type": "`$STRING`"
         }
       ],

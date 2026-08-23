@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "Imgur",
+			"slug": "imgur",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -34,42 +37,52 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "created_at",
+						"short": "Image upload timestamp",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "description",
+						"short": "Image description",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "height",
+						"short": "Image height in pixels",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Image ID",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "size",
+						"short": "File size in bytes",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "title",
+						"short": "Image title",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "type",
+						"short": "MIME type of the image",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "url",
+						"short": "Direct URL to the image",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "views",
+						"short": "Number of views",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "width",
+						"short": "Image width in pixels",
 						"type": "`$INTEGER`",
 					},
 				},
@@ -124,10 +137,12 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "count",
+						"short": "Number of accolades of this type",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "type",
+						"short": "Accolade type",
 						"type": "`$STRING`",
 					},
 				},

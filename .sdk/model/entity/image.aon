@@ -8,51 +8,61 @@ main: kit: entity: image: {
     {
       name: "created_at"
       req: false
+      short: "Image upload timestamp"
       type: "`$STRING`"
     }
     {
       name: "description"
       req: false
+      short: "Image description"
       type: "`$STRING`"
     }
     {
       name: "height"
       req: false
+      short: "Image height in pixels"
       type: "`$INTEGER`"
     }
     {
       name: "id"
       req: false
+      short: "Image ID"
       type: "`$STRING`"
     }
     {
       name: "size"
       req: false
+      short: "File size in bytes"
       type: "`$INTEGER`"
     }
     {
       name: "title"
       req: false
+      short: "Image title"
       type: "`$STRING`"
     }
     {
       name: "type"
       req: false
+      short: "MIME type of the image"
       type: "`$STRING`"
     }
     {
       name: "url"
       req: false
+      short: "Direct URL to the image"
       type: "`$STRING`"
     }
     {
       name: "views"
       req: false
+      short: "Number of views"
       type: "`$INTEGER`"
     }
     {
       name: "width"
       req: false
+      short: "Image width in pixels"
       type: "`$INTEGER`"
     }
   ]

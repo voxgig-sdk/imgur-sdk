@@ -33,6 +33,9 @@ class ImgurConfig
         return [
             "main" => [
                 "name" => "Imgur",
+                "slug" => "imgur",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
@@ -56,42 +59,52 @@ class ImgurConfig
           'fields' => [
             [
               'name' => 'created_at',
+              'short' => 'Image upload timestamp',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'description',
+              'short' => 'Image description',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'height',
+              'short' => 'Image height in pixels',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'id',
+              'short' => 'Image ID',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'size',
+              'short' => 'File size in bytes',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'title',
+              'short' => 'Image title',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'type',
+              'short' => 'MIME type of the image',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'url',
+              'short' => 'Direct URL to the image',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'views',
+              'short' => 'Number of views',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'width',
+              'short' => 'Image width in pixels',
               'type' => '`$INTEGER`',
             ],
           ],
@@ -146,10 +159,12 @@ class ImgurConfig
           'fields' => [
             [
               'name' => 'count',
+              'short' => 'Number of accolades of this type',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'type',
+              'short' => 'Accolade type',
               'type' => '`$STRING`',
             ],
           ],

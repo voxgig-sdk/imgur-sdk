@@ -94,16 +94,16 @@ local image = client:Image(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `created_at` | `string` | No |  |
-| `description` | `string` | No |  |
-| `height` | `number` | No |  |
-| `id` | `string` | No |  |
-| `size` | `number` | No |  |
-| `title` | `string` | No |  |
-| `type` | `string` | No |  |
-| `url` | `string` | No |  |
-| `views` | `number` | No |  |
-| `width` | `number` | No |  |
+| `created_at` | `string` | No | Image upload timestamp |
+| `description` | `string` | No | Image description |
+| `height` | `number` | No | Image height in pixels |
+| `id` | `string` | No | Image ID |
+| `size` | `number` | No | File size in bytes |
+| `title` | `string` | No | Image title |
+| `type` | `string` | No | MIME type of the image |
+| `url` | `string` | No | Direct URL to the image |
+| `views` | `number` | No | Number of views |
+| `width` | `number` | No | Image width in pixels |
 
 ### Operations
 
@@ -155,8 +155,8 @@ local post_meta = client:PostMeta(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `count` | `number` | No |  |
-| `type` | `string` | No |  |
+| `count` | `number` | No | Number of accolades of this type |
+| `type` | `string` | No | Accolade type |
 
 ### Operations
 

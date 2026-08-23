@@ -8,11 +8,13 @@ main: kit: entity: post_meta: {
     {
       name: "count"
       req: false
+      short: "Number of accolades of this type"
       type: "`$INTEGER`"
     }
     {
       name: "type"
       req: false
+      short: "Accolade type"
       type: "`$STRING`"
     }
   ]
