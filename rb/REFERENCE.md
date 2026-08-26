@@ -159,6 +159,7 @@ post_meta = client.PostMeta
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `count` | `Integer` | No | Number of accolades of this type |
+| `id` | `String` | No |  |
 | `type` | `String` | No | Accolade type |
 
 ### Operations

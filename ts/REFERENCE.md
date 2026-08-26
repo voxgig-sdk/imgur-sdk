@@ -188,6 +188,7 @@ const post_meta = client.PostMeta()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `count` | `number` | No | Number of accolades of this type |
+| `id` | `string` | No |  |
 | `type` | `string` | No | Accolade type |
 
 ### Operations

@@ -281,6 +281,7 @@ API path: `/images/{imageId}`
 | Field | Description |
 | --- | --- |
 | `"count"` | Number of accolades of this type |
+| `"id"` |  |
 | `"type"` | Accolade type |
 
 Operations: List.
@@ -343,6 +344,7 @@ Create an instance: `postMeta := client.PostMeta(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `count` | `int` | Number of accolades of this type |
+| `id` | `string` |  |
 | `type` | `string` | Accolade type |
 
 #### Example: List

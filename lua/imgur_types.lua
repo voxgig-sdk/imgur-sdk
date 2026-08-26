@@ -23,6 +23,7 @@
 
 ---@class PostMeta
 ---@field count? number
+---@field id? string
 ---@field type? string
 
 ---@class PostMetaListMatch

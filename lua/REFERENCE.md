@@ -156,6 +156,7 @@ local post_meta = client:PostMeta(nil)
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `count` | `number` | No | Number of accolades of this type |
+| `id` | `string` | No |  |
 | `type` | `string` | No | Accolade type |
 
 ### Operations

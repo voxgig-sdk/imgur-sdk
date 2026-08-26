@@ -28,6 +28,7 @@ module ImgurConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
@@ -147,6 +148,10 @@ module ImgurConfig
               "name" => "count",
               "short" => "Number of accolades of this type",
               "type" => "`$INTEGER`",
+            },
+            {
+              "name" => "id",
+              "type" => "`$STRING`",
             },
             {
               "name" => "type",

@@ -260,6 +260,7 @@ API path: `/images/{imageId}`
 | Field | Description |
 | --- | --- |
 | `count` | Number of accolades of this type |
+| `id` |  |
 | `type` | Accolade type |
 
 Operations: List.
@@ -319,6 +320,7 @@ Create an instance: `post_meta = client.PostMeta`
 | Field | Type | Description |
 | --- | --- | --- |
 | `count` | `Integer` | Number of accolades of this type |
+| `id` | `String` |  |
 | `type` | `String` | Accolade type |
 
 #### Example: List

@@ -158,6 +158,7 @@ $post_meta = $client->PostMeta();
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `count` | `int` | No | Number of accolades of this type |
+| `id` | `string` | No |  |
 | `type` | `string` | No | Accolade type |
 
 ### Operations

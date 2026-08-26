@@ -37,6 +37,7 @@ def make_config():
         "options": {
           "active": False,
         },
+        "transport": "base",
       },
         },
         "options": {
@@ -156,6 +157,10 @@ def make_config():
             "name": "count",
             "short": "Number of accolades of this type",
             "type": "`$INTEGER`",
+          },
+          {
+            "name": "id",
+            "type": "`$STRING`",
           },
           {
             "name": "type",

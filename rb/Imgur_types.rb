@@ -67,10 +67,14 @@ ImageLoadMatch = Struct.new(
 # @!attribute [rw] count
 #   @return [Integer, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] type
 #   @return [String, nil]
 PostMeta = Struct.new(
   :count,
+  :id,
   :type,
   keyword_init: true
 )

@@ -35,6 +35,7 @@ class ImageLoadMatch(TypedDict):
 
 class PostMeta(TypedDict, total=False):
     count: int
+    id: str
     type: str
 
 

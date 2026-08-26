@@ -40,7 +40,8 @@ class Config {
      test:     {
       "options": {
         "active": false
-      }
+      },
+      "transport": "base"
     },
 
   }
@@ -172,6 +173,10 @@ class Config {
           "name": "count",
           "short": "Number of accolades of this type",
           "type": "`$INTEGER`"
+        },
+        {
+          "name": "id",
+          "type": "`$STRING`"
         },
         {
           "name": "type",

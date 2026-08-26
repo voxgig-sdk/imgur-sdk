@@ -12,12 +12,22 @@ main: kit: entity: post_meta: {
       type: "`$INTEGER`"
     }
     {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       name: "type"
       req: false
       short: "Accolade type"
       type: "`$STRING`"
     }
   ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
 
   name: "post_meta"
   op: {

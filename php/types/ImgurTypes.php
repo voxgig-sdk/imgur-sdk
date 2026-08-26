@@ -37,6 +37,7 @@ class ImageLoadMatch
 class PostMeta
 {
     public ?int $count = null;
+    public ?string $id = null;
     public ?string $type = null;
 }
 

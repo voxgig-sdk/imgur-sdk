@@ -34,6 +34,7 @@ type ImageLoadMatch struct {
 // PostMeta is the typed data model for the post_meta entity.
 type PostMeta struct {
 	Count *int `json:"count,omitempty"`
+	Id *string `json:"id,omitempty"`
 	Type *string `json:"type,omitempty"`
 }
 

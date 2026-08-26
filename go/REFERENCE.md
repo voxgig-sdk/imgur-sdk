@@ -163,6 +163,7 @@ fmt.Println(postMeta.GetName()) // "post_meta"
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `count` | `int` | No | Number of accolades of this type |
+| `id` | `string` | No |  |
 | `type` | `string` | No | Accolade type |
 
 ### Operations

@@ -24,6 +24,7 @@ export interface ImageLoadMatch {
 
 export interface PostMeta {
   count?: number
+  id?: string
   type?: string
 }
 

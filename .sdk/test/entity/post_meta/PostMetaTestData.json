@@ -2,24 +2,27 @@
   "existing": {
     "post_meta": {
       "POST_META00": {
-        "count": "s14",
-        "type": "s15"
+        "count": "s1e",
+        "id": "POST_META00",
+        "type": "s20"
       },
       "POST_META01": {
-        "count": "s28",
-        "type": "s29"
+        "count": "s3c",
+        "id": "POST_META01",
+        "type": "s3e"
       },
       "POST_META02": {
-        "count": "s3c",
-        "type": "s3d"
+        "count": "s5a",
+        "id": "POST_META02",
+        "type": "s5c"
       }
     }
   },
   "new": {
     "post_meta": {
       "post_meta_ref01": {
-        "count": "s50",
-        "type": "s51"
+        "count": "s78",
+        "type": "s7a"
       }
     }
   }

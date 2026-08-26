@@ -152,6 +152,7 @@ post_meta = client.PostMeta()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `count` | `int` | No | Number of accolades of this type |
+| `id` | `str` | No |  |
 | `type` | `str` | No | Accolade type |
 
 ### Operations
