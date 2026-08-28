@@ -39,5 +39,9 @@ class PostMeta(TypedDict, total=False):
     type: str
 
 
-class PostMetaListMatch(TypedDict):
+class PostMetaListMatchRequired(TypedDict):
     id: str
+
+
+class PostMetaListMatch(PostMetaListMatchRequired, total=False):
+    include: str

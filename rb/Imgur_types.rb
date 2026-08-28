@@ -83,8 +83,12 @@ PostMeta = Struct.new(
 #
 # @!attribute [rw] id
 #   @return [String]
+#
+# @!attribute [rw] include
+#   @return [String, nil]
 PostMetaListMatch = Struct.new(
   :id,
+  :include,
   keyword_init: true
 )
 

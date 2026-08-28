@@ -45,5 +45,6 @@ class PostMeta
 class PostMetaListMatch
 {
     public string $id;
+    public ?string $include = null;
 }
 

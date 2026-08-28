@@ -30,5 +30,6 @@ export interface PostMeta {
 
 export interface PostMetaListMatch {
   id: string
+  include?: string
 }
 

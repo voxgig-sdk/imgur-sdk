@@ -41,6 +41,7 @@ type PostMeta struct {
 // PostMetaListMatch is the typed request payload for PostMeta.ListTyped.
 type PostMetaListMatch struct {
 	Id string `json:"id"`
+	Include *string `json:"include,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

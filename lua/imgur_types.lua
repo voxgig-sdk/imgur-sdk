@@ -28,6 +28,7 @@
 
 ---@class PostMetaListMatch
 ---@field id string
+---@field include? string
 
 local M = {}
 
