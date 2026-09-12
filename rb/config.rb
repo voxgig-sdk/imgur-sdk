@@ -45,6 +45,7 @@ module ImgurConfig
         "image" => {
           "fields" => [
             {
+              "format" => "date-time",
               "name" => "created_at",
               "short" => "Image upload timestamp",
               "type" => "`$STRING`",
@@ -80,6 +81,7 @@ module ImgurConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "uri",
               "name" => "url",
               "short" => "Direct URL to the image",
               "type" => "`$STRING`",
@@ -95,6 +97,10 @@ module ImgurConfig
               "type" => "`$INTEGER`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "image",
           "op" => {
             "load" => {
@@ -116,15 +122,19 @@ module ImgurConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/images/{imageId}",
-                  "parts" => [
-                    "images",
-                    "{id}",
-                  ],
                   "rename" => {
                     "param" => {
                       "imageId" => "id",
                     },
                   },
+                  "segments" => [
+                    {
+                      "lit" => "images",
+                    },
+                    {
+                      "var" => "id",
+                    },
+                  ],
                   "select" => {
                     "exist" => [
                       "id",
@@ -134,6 +144,10 @@ module ImgurConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "images",
+                    "{id}",
+                  ],
                 },
               ],
             },
@@ -159,6 +173,10 @@ module ImgurConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "post_meta",
           "op" => {
             "list" => {
@@ -190,16 +208,22 @@ module ImgurConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/post/{postId}/meta",
-                  "parts" => [
-                    "post",
-                    "{id}",
-                    "meta",
-                  ],
                   "rename" => {
                     "param" => {
                       "postId" => "id",
                     },
                   },
+                  "segments" => [
+                    {
+                      "lit" => "post",
+                    },
+                    {
+                      "var" => "id",
+                    },
+                    {
+                      "lit" => "meta",
+                    },
+                  ],
                   "select" => {
                     "exist" => [
                       "id",
@@ -210,6 +234,11 @@ module ImgurConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "post",
+                    "{id}",
+                    "meta",
+                  ],
                 },
               ],
             },

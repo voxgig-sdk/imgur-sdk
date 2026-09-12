@@ -98,7 +98,7 @@ func TestPostMetaEntity(t *testing.T) {
 		client := setup.client
 
 		// Bootstrap entity data from existing test data (no create step in flow).
-		postMetaRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath("existing.post_meta", setup.data)))
+		postMetaRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath(setup.data, "existing.post_meta")))
 		var postMetaRef01Data map[string]any
 		if len(postMetaRef01DataRaw) > 0 {
 			postMetaRef01Data = core.ToMapAny(postMetaRef01DataRaw[0][1])
@@ -149,7 +149,7 @@ func post_metaBasicSetup(extra map[string]any) *entityTestSetup {
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"post_meta01", "post_meta02", "post_meta03", "post01"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -177,10 +177,22 @@ func post_metaBasicSetup(extra map[string]any) *entityTestSetup {
 	}
 
 	if env["IMGUR_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewImgurSDK(core.ToMapAny(mergedOpts))
 	}

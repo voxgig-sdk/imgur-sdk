@@ -6,6 +6,7 @@ main: kit: entity: image: {
 
   fields: [
     {
+      format: "date-time"
       name: "created_at"
       req: false
       short: "Image upload timestamp"
@@ -48,6 +49,7 @@ main: kit: entity: image: {
       type: "`$STRING`"
     }
     {
+      format: "uri"
       name: "url"
       req: false
       short: "Direct URL to the image"
@@ -91,15 +93,19 @@ main: kit: entity: image: {
           }
           method: "GET"
           orig: "/images/{imageId}"
-          parts: [
-            "images"
-            "{id}"
-          ]
           rename: {
             param: {
               imageId: "id"
             }
           }
+          segments: [
+            {
+              lit: "images"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"

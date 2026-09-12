@@ -37,6 +37,7 @@ func MakeConfig() map[string]any {
 			"image": map[string]any{
 				"fields": []any{
 					map[string]any{
+						"format": "date-time",
 						"name": "created_at",
 						"short": "Image upload timestamp",
 						"type": "`$STRING`",
@@ -72,6 +73,7 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "url",
 						"short": "Direct URL to the image",
 						"type": "`$STRING`",
@@ -86,6 +88,10 @@ func MakeConfig() map[string]any {
 						"short": "Image width in pixels",
 						"type": "`$INTEGER`",
 					},
+				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
 				},
 				"name": "image",
 				"op": map[string]any{
@@ -108,13 +114,17 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/images/{imageId}",
-								"parts": []any{
-									"images",
-									"{id}",
-								},
 								"rename": map[string]any{
 									"param": map[string]any{
 										"imageId": "id",
+									},
+								},
+								"segments": []any{
+									map[string]any{
+										"lit": "images",
+									},
+									map[string]any{
+										"var": "id",
 									},
 								},
 								"select": map[string]any{
@@ -125,6 +135,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"images",
+									"{id}",
 								},
 							},
 						},
@@ -150,6 +164,10 @@ func MakeConfig() map[string]any {
 						"short": "Accolade type",
 						"type": "`$STRING`",
 					},
+				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
 				},
 				"name": "post_meta",
 				"op": map[string]any{
@@ -182,14 +200,20 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/post/{postId}/meta",
-								"parts": []any{
-									"post",
-									"{id}",
-									"meta",
-								},
 								"rename": map[string]any{
 									"param": map[string]any{
 										"postId": "id",
+									},
+								},
+								"segments": []any{
+									map[string]any{
+										"lit": "post",
+									},
+									map[string]any{
+										"var": "id",
+									},
+									map[string]any{
+										"lit": "meta",
 									},
 								},
 								"select": map[string]any{
@@ -202,6 +226,11 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
+								"parts": []any{
+									"post",
+									"{id}",
+									"meta",
+								},
 							},
 						},
 					},
@@ -212,6 +241,17 @@ func MakeConfig() map[string]any {
 			},
 		},
 	}
+}
+
+// The plugin definitions the model selected per feature, as []any so a
+// feature package can consume them without core naming its types. Empty
+// when no active feature declares active plugin groups for this target.
+var featurePlugins = map[string][]any{
+}
+
+// FeaturePlugins is the definitions list for one feature's chain.
+func FeaturePlugins(name string) []any {
+	return featurePlugins[name]
 }
 
 var (

@@ -59,16 +59,22 @@ main: kit: entity: post_meta: {
           }
           method: "GET"
           orig: "/post/{postId}/meta"
-          parts: [
-            "post"
-            "{id}"
-            "meta"
-          ]
           rename: {
             param: {
               postId: "id"
             }
           }
+          segments: [
+            {
+              lit: "post"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "meta"
+            }
+          ]
           select: {
             exist: [
               "id"
