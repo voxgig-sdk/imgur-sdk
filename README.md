@@ -105,7 +105,7 @@ local result, err = client:Image():load({ id = "test01" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/imgur` | publish pending — [install from git tag](https://github.com/voxgig-sdk/imgur-sdk/releases) |
+| TypeScript | `@voxgig-sdk/imgur-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/imgur-sdk/releases) |
 | Python | `voxgig-sdk-imgur` | publish pending — [install from git tag](https://github.com/voxgig-sdk/imgur-sdk/releases) |
 | PHP | `voxgig-sdk/imgur` | publish pending — [install from git tag](https://github.com/voxgig-sdk/imgur-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/imgur-sdk/go` | `go get github.com/voxgig-sdk/imgur-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:Image():load({ id = "test01" })
 ### TypeScript
 
 ```ts
-import { ImgurSDK } from '@voxgig-sdk/imgur'
+import { ImgurSDK } from '@voxgig-sdk/imgur-sdk'
 
 const client = new ImgurSDK()
 

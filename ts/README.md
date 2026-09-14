@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { ImgurSDK } from '@voxgig-sdk/imgur'
+import { ImgurSDK } from '@voxgig-sdk/imgur-sdk'
 
 const client = new ImgurSDK()
 ```
@@ -460,7 +460,7 @@ imgur/
 Import the SDK from the package root:
 
 ```ts
-import { ImgurSDK } from '@voxgig-sdk/imgur'
+import { ImgurSDK } from '@voxgig-sdk/imgur-sdk'
 ```
 
 ### Entity state
