@@ -4,38 +4,38 @@
       "IMAGE00": {
         "created_at": "s64",
         "description": "s65",
-        "height": "s66",
+        "height": 102,
         "id": "IMAGE00",
-        "size": "s68",
+        "size": 104,
         "title": "s69",
         "type": "s6a",
         "url": "s6b",
-        "views": "s6c",
-        "width": "s6d"
+        "views": 108,
+        "width": 109
       },
       "IMAGE01": {
         "created_at": "sc8",
         "description": "sc9",
-        "height": "sca",
+        "height": 202,
         "id": "IMAGE01",
-        "size": "scc",
+        "size": 204,
         "title": "scd",
         "type": "sce",
         "url": "scf",
-        "views": "sd0",
-        "width": "sd1"
+        "views": 208,
+        "width": 209
       },
       "IMAGE02": {
         "created_at": "s12c",
         "description": "s12d",
-        "height": "s12e",
+        "height": 302,
         "id": "IMAGE02",
-        "size": "s130",
+        "size": 304,
         "title": "s131",
         "type": "s132",
         "url": "s133",
-        "views": "s134",
-        "width": "s135"
+        "views": 308,
+        "width": 309
       }
     }
   },
@@ -44,13 +44,122 @@
       "image_ref01": {
         "created_at": "s190",
         "description": "s191",
-        "height": "s192",
-        "size": "s194",
+        "height": 402,
+        "size": 404,
         "title": "s195",
         "type": "s196",
         "url": "s197",
-        "views": "s198",
-        "width": "s199"
+        "views": 408,
+        "width": 409
+      }
+    }
+  },
+  "requests": {
+    "GET /images/{imageId}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getImage",
+        "parameters": [
+          {
+            "description": "The unique identifier of the image",
+            "in": "path",
+            "name": "imageId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "created_at": {
+                      "description": "Image upload timestamp",
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "description": {
+                      "description": "Image description",
+                      "type": "string"
+                    },
+                    "height": {
+                      "description": "Image height in pixels",
+                      "type": "integer"
+                    },
+                    "id": {
+                      "description": "Image ID",
+                      "type": "string"
+                    },
+                    "size": {
+                      "description": "File size in bytes",
+                      "type": "integer"
+                    },
+                    "title": {
+                      "description": "Image title",
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "MIME type of the image",
+                      "type": "string"
+                    },
+                    "url": {
+                      "description": "Direct URL to the image",
+                      "format": "uri",
+                      "type": "string"
+                    },
+                    "views": {
+                      "description": "Number of views",
+                      "type": "integer"
+                    },
+                    "width": {
+                      "description": "Image width in pixels",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response with image details"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "example": "Image not found",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Image not found"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "example": "Internal server error",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
       }
     }
   }

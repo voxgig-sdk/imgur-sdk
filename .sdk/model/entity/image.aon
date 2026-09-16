@@ -91,6 +91,12 @@ main: kit: entity: image: {
               }
             ]
           }
+          contract: {
+            id: "GET /images/{imageId}"
+            json: "{\"operationId\":\"getImage\",\"parameters\":[{\"description\":\"The unique identifier of the image\",\"in\":\"path\",\"name\":\"imageId\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"created_at\":{\"description\":\"Image upload timestamp\",\"format\":\"date-time\",\"type\":\"string\"},\"description\":{\"description\":\"Image description\",\"type\":\"string\"},\"height\":{\"description\":\"Image height in pixels\",\"type\":\"integer\"},\"id\":{\"description\":\"Image ID\",\"type\":\"string\"},\"size\":{\"description\":\"File size in bytes\",\"type\":\"integer\"},\"title\":{\"description\":\"Image title\",\"type\":\"string\"},\"type\":{\"description\":\"MIME type of the image\",\"type\":\"string\"},\"url\":{\"description\":\"Direct URL to the image\",\"format\":\"uri\",\"type\":\"string\"},\"views\":{\"description\":\"Number of views\",\"type\":\"integer\"},\"width\":{\"description\":\"Image width in pixels\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Successful response with image details\"},\"404\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"example\":\"Image not found\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Image not found\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"example\":\"Internal server error\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/images/{imageId}"
           rename: {

@@ -4,7 +4,10 @@ declare(strict_types=1);
 // Imgur SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class ImgurFeatures
@@ -14,8 +17,14 @@ class ImgurFeatures
         switch ($name) {
             case "base":
                 return new ImgurBaseFeature();
+            case "ratelimit":
+                return new ImgurRatelimitFeature();
+            case "retry":
+                return new ImgurRetryFeature();
             case "test":
                 return new ImgurTestFeature();
+            case "timeout":
+                return new ImgurTimeoutFeature();
             default:
                 return new ImgurBaseFeature();
         }
@@ -31,7 +40,10 @@ class ImgurFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

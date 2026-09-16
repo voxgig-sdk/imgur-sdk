@@ -1,12 +1,18 @@
 # Imgur SDK feature factory
 
 from imgur_sdk.feature.base_feature import ImgurBaseFeature
+from imgur_sdk.feature.ratelimit_feature import ImgurRatelimitFeature
+from imgur_sdk.feature.retry_feature import ImgurRetryFeature
 from imgur_sdk.feature.test_feature import ImgurTestFeature
+from imgur_sdk.feature.timeout_feature import ImgurTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: ImgurBaseFeature(),
+    "ratelimit": lambda: ImgurRatelimitFeature(),
+    "retry": lambda: ImgurRetryFeature(),
     "test": lambda: ImgurTestFeature(),
+    "timeout": lambda: ImgurTimeoutFeature(),
 }
 
 
